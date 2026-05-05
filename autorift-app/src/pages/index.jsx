@@ -5,18 +5,18 @@ import ControlPanel from '../components/ControlPanel';
 import StepViewer from '../components/StepViewer';
 import PopupModal from '../components/PopupModal';
 import ErrorBox from '../components/ErrorBox';
+import FloatOverlay from '../components/FloatOverlay';
 
 export default function IndexPage() {
   const {
     isRecording, steps, status, error, executionLog,
     startRecording, stopRecording, clearSteps, removeStep,
-    submitToBackend, runExecution,
+    submitToBackend, runExecution, exportJSON,
   } = useRecorder();
 
   const [showExecModal, setShowExecModal] = useState(false);
   const [dismissedError, setDismissedError] = useState(false);
 
-  // Show exec modal when execution completes
   const handleExecute = async () => {
     setShowExecModal(false);
     await runExecution();
@@ -26,7 +26,8 @@ export default function IndexPage() {
   const visibleError = !dismissedError && error ? error : null;
 
   return (
-    <div className="min-h-screen bg-[#0a0b0d] text-[#e8edf5] font-mono">
+    // data-autorift-ui tells the recorder listeners to ignore this whole tree
+    <div className="min-h-screen bg-[#0a0b0d] text-[#e8edf5] font-mono" data-autorift-ui>
       {/* Noise overlay */}
       <div
         className="pointer-events-none fixed inset-0 z-0 opacity-[0.025]"
@@ -59,15 +60,10 @@ export default function IndexPage() {
           </div>
         </header>
 
-        {/* Error */}
-        <ErrorBox
-          error={visibleError}
-          onDismiss={() => setDismissedError(true)}
-        />
+        <ErrorBox error={visibleError} onDismiss={() => setDismissedError(true)} />
 
         {/* Main grid */}
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-5">
-          {/* Left column */}
           <div className="flex flex-col gap-5">
             <RecorderPanel
               isRecording={isRecording}
@@ -82,31 +78,28 @@ export default function IndexPage() {
               onSubmit={submitToBackend}
               onExecute={handleExecute}
               onClear={clearSteps}
+              onExport={exportJSON}
             />
           </div>
 
-          {/* Right column: step viewer */}
           <div className="lg:col-span-2">
             <StepViewer steps={steps} onRemove={removeStep} />
           </div>
         </div>
 
-        {/* Footer */}
         <footer className="flex items-center justify-between pt-4 border-t border-[#1c2130]">
           <span className="text-[9px] tracking-[0.2em] uppercase text-[#3d4d61]">
-            AutoRift v0.1 · Hackathon Build
+            AutoRift v0.2 · Web Edition
           </span>
           <div className="flex gap-4 text-[9px] tracking-widest text-[#3d4d61] uppercase">
-            <span>React</span>
-            <span>·</span>
-            <span>FastAPI</span>
-            <span>·</span>
+            <span>React</span><span>·</span>
+            <span>FastAPI</span><span>·</span>
             <span>Playwright</span>
           </div>
         </footer>
       </div>
 
-      {/* Execution results modal */}
+      {/* Execution modal */}
       {showExecModal && (
         <PopupModal
           title="Execution Results"
@@ -140,6 +133,14 @@ export default function IndexPage() {
           </div>
         </PopupModal>
       )}
+
+      {/* Floating overlay — renders outside main layout, on top of everything */}
+      <FloatOverlay
+        isRecording={isRecording}
+        steps={steps}
+        status={status}
+        onStop={stopRecording}
+      />
     </div>
   );
 }

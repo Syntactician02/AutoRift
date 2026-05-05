@@ -1,0 +1,41 @@
+{
+  "name": "autorift",
+  "version": "0.2.0",
+  "description": "AutoRift — Workflow Automation Desktop App",
+  "main": "electron/main.js",
+  "scripts": {
+    "dev": "concurrently \"npm run dev --prefix autorift-app\" \"wait-on http://localhost:5173 && cross-env NODE_ENV=development electron .\"",
+    "build": "npm run build --prefix autorift-app && electron-builder",
+    "electron": "cross-env NODE_ENV=development electron ."
+  },
+  "devDependencies": {
+    "autoprefixer": "^10.5.0",
+    "concurrently": "^8.2.0",
+    "cross-env": "^7.0.3",
+    "electron": "^30.0.0",
+    "electron-builder": "^24.0.0",
+    "postcss": "^8.5.14",
+    "tailwindcss": "^4.2.4",
+    "wait-on": "^7.2.0"
+  },
+  "build": {
+    "appId": "com.autorift.app",
+    "productName": "AutoRift",
+    "directories": {
+      "output": "dist-electron"
+    },
+    "files": [
+      "electron/**/*",
+      "autorift-app/dist/**/*"
+    ],
+    "win": {
+      "target": "nsis"
+    },
+    "mac": {
+      "target": "dmg"
+    },
+    "linux": {
+      "target": "AppImage"
+    }
+  }
+}
