@@ -1,0 +1,68 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "AutoRift Step Schema",
+  "description": "JSON Schema for AutoRift recorded steps",
+  "type": "object",
+  "properties": {
+    "step": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Unique identifier for the step"
+        },
+        "type": {
+          "type": "string",
+          "enum": ["click", "type", "scroll", "wait", "screenshot", "verify"],
+          "description": "Type of action"
+        },
+        "action": {
+          "type": "string",
+          "description": "Description of the action"
+        },
+        "value": {
+          "description": "Value associated with the action (e.g., text to type)"
+        },
+        "metadata": {
+          "type": "object",
+          "properties": {
+            "timestamp": {
+              "type": "string",
+              "format": "date-time",
+              "description": "When the step was recorded"
+            },
+            "duration": {
+              "type": "number",
+              "description": "Duration of the step in seconds"
+            },
+            "element_id": {
+              "type": "string",
+              "description": "ID of the target element"
+            },
+            "element_type": {
+              "type": "string",
+              "description": "Type of the target element"
+            },
+            "screen_coordinates": {
+              "type": "object",
+              "properties": {
+                "x": {
+                  "type": "number"
+                },
+                "y": {
+                  "type": "number"
+                }
+              }
+            }
+          },
+          "required": ["timestamp", "duration"]
+        },
+        "description": {
+          "type": "string",
+          "description": "Human-readable description of the step"
+        }
+      },
+      "required": ["id", "type", "action", "metadata"]
+    }
+  }
+}

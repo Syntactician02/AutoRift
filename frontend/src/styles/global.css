@@ -1,0 +1,102 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600;700&family=Syne:wght@400;500;600;700;800&display=swap');
+
+:root {
+  --bg-primary: #0a0b0d;
+  --bg-secondary: #111318;
+  --bg-panel: #161a22;
+  --bg-elevated: #1c2130;
+  --border: #252d3d;
+  --border-bright: #2e3a50;
+  --cyan: #00e5ff;
+  --cyan-dim: #00b8cc;
+  --cyan-glow: rgba(0, 229, 255, 0.15);
+  --green: #00ff88;
+  --red: #ff3b5c;
+  --yellow: #ffcc00;
+  --text-primary: #e8edf5;
+  --text-secondary: #7a8aa0;
+  --text-muted: #3d4d61;
+  --font-mono: 'JetBrains Mono', monospace;
+  --font-display: 'Syne', sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body, #root {
+  height: 100%;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  font-family: var(--font-mono);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 4px; height: 4px; }
+::-webkit-scrollbar-track { background: var(--bg-secondary); }
+::-webkit-scrollbar-thumb { background: var(--border-bright); border-radius: 2px; }
+::-webkit-scrollbar-thumb:hover { background: var(--cyan-dim); }
+
+/* Glow utility */
+.glow-cyan {
+  box-shadow: 0 0 20px var(--cyan-glow), 0 0 40px rgba(0, 229, 255, 0.06);
+}
+
+.glow-text-cyan {
+  text-shadow: 0 0 20px rgba(0, 229, 255, 0.6);
+}
+
+/* Scanline overlay on panels */
+.scanline::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 2px,
+    rgba(0, 0, 0, 0.03) 2px,
+    rgba(0, 0, 0, 0.03) 4px
+  );
+  pointer-events: none;
+  border-radius: inherit;
+}
+
+/* Pulse recording dot */
+@keyframes pulse-rec {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.4; transform: scale(0.85); }
+}
+
+.pulse-rec {
+  animation: pulse-rec 1.2s ease-in-out infinite;
+}
+
+@keyframes fadeSlideIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.fade-in {
+  animation: fadeSlideIn 0.3s ease forwards;
+}
+
+@keyframes shimmer {
+  0%   { background-position: -200% center; }
+  100% { background-position:  200% center; }
+}
+
+.shimmer-text {
+  background: linear-gradient(90deg, var(--text-secondary) 0%, var(--cyan) 50%, var(--text-secondary) 100%);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: shimmer 3s linear infinite;
+}
