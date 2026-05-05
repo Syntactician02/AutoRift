@@ -1,9 +1,11 @@
 const { app, BrowserWindow, ipcMain, globalShortcut, screen } = require('electron');
 const { exec, spawn } = require('child_process');
 const path = require('path');
+const { uIOhook, UiohookKey } = require('uiohook-napi');
 
 let mainWindow = null;
 let floatWindow = null;
+let isRecording = false;
 
 function createMainWindow() {
   mainWindow = new BrowserWindow({
@@ -64,13 +66,76 @@ function createFloatWindow() {
   floatWindow.on('closed', () => { floatWindow = null; });
 }
 
+// ── Global input tracking ──────────────────────────────────────────────────────
+function startGlobalTracking() {
+  uIOhook.on('click', (e) => {
+    if (!isRecording) return;
+    const step = {
+      id: `step_${Date.now()}_click`,
+      type: 'click',
+      timestamp: new Date().toISOString(),
+      payload: {
+        x: e.x,
+        y: e.y,
+        button: e.button === 1 ? 'left' : e.button === 2 ? 'right' : 'middle',
+        selector: `screen(${e.x},${e.y})`,
+      },
+    };
+    mainWindow?.webContents.send('global:step', step);
+    floatWindow?.webContents.send('recording:steps-update', step);
+  });
+
+  uIOhook.on('keydown', (e) => {
+    if (!isRecording) return;
+    // Only capture named/useful keys, not every character
+    const namedKeys = {
+      [UiohookKey.Enter]: 'Enter',
+      [UiohookKey.Escape]: 'Escape',
+      [UiohookKey.Tab]: 'Tab',
+      [UiohookKey.Backspace]: 'Backspace',
+      [UiohookKey.Delete]: 'Delete',
+      [UiohookKey.ArrowUp]: 'ArrowUp',
+      [UiohookKey.ArrowDown]: 'ArrowDown',
+      [UiohookKey.ArrowLeft]: 'ArrowLeft',
+      [UiohookKey.ArrowRight]: 'ArrowRight',
+    };
+    const keyName = namedKeys[e.keycode];
+    if (!keyName) return;
+    const step = {
+      id: `step_${Date.now()}_key`,
+      type: 'keydown',
+      timestamp: new Date().toISOString(),
+      payload: { key: keyName },
+    };
+    mainWindow?.webContents.send('global:step', step);
+  });
+
+
+  uIOhook.on('mousedown', (e) => console.log('GLOBAL CLICK DETECTED:', e.x, e.y));
+  uIOhook.on('keydown', (e) => console.log('GLOBAL KEY DETECTED:', e.keycode));
+  uIOhook.start();
+}
+
+function stopGlobalTracking() {
+  uIOhook.stop();
+}
+
+// ── App lifecycle ──────────────────────────────────────────────────────────────
 app.whenReady().then(() => {
   createMainWindow();
   createFloatWindow();
+  startGlobalTracking();
 
   // Ctrl+Shift+R — toggle recording globally
   globalShortcut.register('CommandOrControl+Shift+R', () => {
+    isRecording = !isRecording;
     mainWindow?.webContents.send('shortcut:toggle-recording');
+    if (isRecording) {
+      floatWindow?.show();
+      floatWindow?.webContents.send('recording:status', { recording: true });
+    } else {
+      floatWindow?.webContents.send('recording:status', { recording: false });
+    }
   });
 
   // Ctrl+Shift+F — show/hide float window
@@ -80,21 +145,28 @@ app.whenReady().then(() => {
   });
 });
 
-app.on('will-quit', () => globalShortcut.unregisterAll());
+app.on('will-quit', () => {
+  globalShortcut.unregisterAll();
+  stopGlobalTracking();
+});
+
 app.on('window-all-closed', () => {
   if (process.platform !== 'darwin') app.quit();
 });
+
 app.on('activate', () => {
   if (!mainWindow) createMainWindow();
 });
 
 // ── Recording IPC ──────────────────────────────────────────────────────────────
 ipcMain.on('recording:started', () => {
+  isRecording = true;
   floatWindow?.show();
   floatWindow?.webContents.send('recording:status', { recording: true });
 });
 
 ipcMain.on('recording:stopped', () => {
+  isRecording = false;
   floatWindow?.webContents.send('recording:status', { recording: false });
 });
 
@@ -103,6 +175,7 @@ ipcMain.on('recording:steps-update', (_, steps) => {
 });
 
 ipcMain.on('float:stop-recording', () => {
+  isRecording = false;
   mainWindow?.webContents.send('shortcut:toggle-recording');
 });
 
