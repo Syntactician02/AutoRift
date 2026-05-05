@@ -1,4 +1,4 @@
-import { useState, useCallback, useRef } from 'react';
+import { useState, useCallback, useRef, useEffect } from 'react';
 import { submitSteps, executeSteps } from '../services/api';
 
 const ACTION_TYPES = {
@@ -24,12 +24,21 @@ function buildStep(type, payload) {
 export function useRecorder() {
   const [isRecording, setIsRecording] = useState(false);
   const [steps, setSteps] = useState([]);
-  const [status, setStatus] = useState('idle'); // idle | recording | submitting | executing | done | error
+  const [status, setStatus] = useState('idle');
   const [error, setError] = useState(null);
   const [executionLog, setExecutionLog] = useState([]);
   const listenersRef = useRef([]);
 
-  // --- DOM listener helpers ---
+  // ── Global steps from Electron (cross-app recording) ──────────────────────
+  useEffect(() => {
+    if (!window.electronAPI?.onGlobalStep) return;
+    window.electronAPI.onGlobalStep((step) => {
+      setSteps((prev) => [...prev, step]);
+    });
+    return () => window.electronAPI.removeAllListeners('global:step');
+  }, []);
+
+  // ── DOM listener helpers (in-app recording) ────────────────────────────────
   const addStep = useCallback((step) => {
     setSteps((prev) => [...prev, step]);
   }, []);
@@ -39,6 +48,9 @@ export function useRecorder() {
     setExecutionLog([]);
     setStatus('recording');
     setIsRecording(true);
+
+    // Notify Electron main process
+    window.electronAPI?.recordingStarted();
 
     // Click listener
     const onClick = (e) => {
@@ -91,6 +103,9 @@ export function useRecorder() {
     listenersRef.current = [];
     setIsRecording(false);
     setStatus('idle');
+
+    // Notify Electron main process
+    window.electronAPI?.recordingStopped();
   }, []);
 
   const clearSteps = useCallback(() => {
@@ -150,7 +165,7 @@ export function useRecorder() {
   };
 }
 
-// --- Utility: build a best-effort CSS selector ---
+// ── Utility: build a best-effort CSS selector ──────────────────────────────────
 function buildSelector(el) {
   if (el.id) return `#${el.id}`;
   if (el.dataset?.testid) return `[data-testid="${el.dataset.testid}"]`;
@@ -160,7 +175,6 @@ function buildSelector(el) {
     .slice(0, 2)
     .join('.');
   if (cls) return `${tag}.${cls}`;
-  // fallback: nth-child path (shallow)
   const parent = el.parentElement;
   if (parent) {
     const idx = Array.from(parent.children).indexOf(el) + 1;

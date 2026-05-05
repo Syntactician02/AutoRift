@@ -37,5 +37,8 @@
     "linux": {
       "target": "AppImage"
     }
+  },
+  "dependencies": {
+    "uiohook-napi": "^1.5.5"
   }
 }
