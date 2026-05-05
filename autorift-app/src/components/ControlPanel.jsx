@@ -80,4 +80,4 @@ function summarizeSteps(steps) {
     map[type] = (map[type] || 0) + 1;
   });
   return Object.entries(map).map(([type, count]) => ({ type, count }));
-}
+} 

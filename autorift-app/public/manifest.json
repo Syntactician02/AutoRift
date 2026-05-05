@@ -1,0 +1,11 @@
+{
+  "manifest_version": 3,
+  "name": "AutoRift",
+  "version": "0.1.0",
+  "description": "Workflow Automation · Capture → Execute · Adapt",
+  "action": {
+    "default_popup": "index.html"
+  },
+  "permissions": ["activeTab", "scripting", "storage"],
+  "host_permissions": ["<all_urls>"]
+}
