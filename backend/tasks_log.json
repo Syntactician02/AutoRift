@@ -82,5 +82,195 @@
       "fix_command": ""
     },
     "updated_at": "2026-05-06T00:40:52.957817"
+  },
+  "af0b5229-58be-41d0-ab08-620304f82c4f": {
+    "task": "Click on screen(1380,563), then Click on screen(1380,563), then Click on screen(1231,1079), then Click on screen(1455,860), then Click on screen(1136,95), then Press Enter, then Click on screen(1393,1058), then Click on screen(549,373)",
+    "shortcut_key": null,
+    "status": "running",
+    "created_at": "2026-05-06T02:57:29.244048",
+    "recorded_steps": [
+      {
+        "id": "step_1778036229679_click",
+        "type": "click",
+        "timestamp": "2026-05-06T02:57:09.679Z",
+        "payload": {
+          "x": 1380,
+          "y": 563,
+          "button": "left",
+          "selector": "screen(1380,563)"
+        }
+      },
+      {
+        "id": "step_1778036230570_click",
+        "type": "click",
+        "timestamp": "2026-05-06T02:57:10.570Z",
+        "payload": {
+          "x": 1380,
+          "y": 563,
+          "button": "left",
+          "selector": "screen(1380,563)"
+        }
+      },
+      {
+        "id": "step_1778036231943_click",
+        "type": "click",
+        "timestamp": "2026-05-06T02:57:11.943Z",
+        "payload": {
+          "x": 1231,
+          "y": 1079,
+          "button": "left",
+          "selector": "screen(1231,1079)"
+        }
+      },
+      {
+        "id": "step_1778036234022_click",
+        "type": "click",
+        "timestamp": "2026-05-06T02:57:14.022Z",
+        "payload": {
+          "x": 1455,
+          "y": 860,
+          "button": "left",
+          "selector": "screen(1455,860)"
+        }
+      },
+      {
+        "id": "step_1778036235882_click",
+        "type": "click",
+        "timestamp": "2026-05-06T02:57:15.882Z",
+        "payload": {
+          "x": 1136,
+          "y": 95,
+          "button": "left",
+          "selector": "screen(1136,95)"
+        }
+      },
+      {
+        "id": "step_1778036240238_key",
+        "type": "keydown",
+        "timestamp": "2026-05-06T02:57:20.239Z",
+        "payload": {
+          "key": "Enter"
+        }
+      },
+      {
+        "id": "step_1778036244866_click",
+        "type": "click",
+        "timestamp": "2026-05-06T02:57:24.866Z",
+        "payload": {
+          "x": 1393,
+          "y": 1058,
+          "button": "left",
+          "selector": "screen(1393,1058)"
+        }
+      },
+      {
+        "id": "step_1778036246839_click",
+        "type": "click",
+        "timestamp": "2026-05-06T02:57:26.839Z",
+        "payload": {
+          "x": 549,
+          "y": 373,
+          "button": "left",
+          "selector": "screen(549,373)"
+        }
+      }
+    ],
+    "steps": [],
+    "updated_at": "2026-05-06T02:57:30.028281"
+  },
+  "5a762ad6-163b-4520-9c20-223bb7d3e86a": {
+    "task": "Click on screen(1380,563), then Click on screen(1380,563), then Click on screen(1231,1079), then Click on screen(1455,860), then Click on screen(1136,95), then Press Enter, then Click on screen(1393,1058), then Click on screen(549,373)",
+    "shortcut_key": null,
+    "status": "running",
+    "created_at": "2026-05-06T02:57:32.095214",
+    "recorded_steps": [
+      {
+        "id": "step_1778036229679_click",
+        "type": "click",
+        "timestamp": "2026-05-06T02:57:09.679Z",
+        "payload": {
+          "x": 1380,
+          "y": 563,
+          "button": "left",
+          "selector": "screen(1380,563)"
+        }
+      },
+      {
+        "id": "step_1778036230570_click",
+        "type": "click",
+        "timestamp": "2026-05-06T02:57:10.570Z",
+        "payload": {
+          "x": 1380,
+          "y": 563,
+          "button": "left",
+          "selector": "screen(1380,563)"
+        }
+      },
+      {
+        "id": "step_1778036231943_click",
+        "type": "click",
+        "timestamp": "2026-05-06T02:57:11.943Z",
+        "payload": {
+          "x": 1231,
+          "y": 1079,
+          "button": "left",
+          "selector": "screen(1231,1079)"
+        }
+      },
+      {
+        "id": "step_1778036234022_click",
+        "type": "click",
+        "timestamp": "2026-05-06T02:57:14.022Z",
+        "payload": {
+          "x": 1455,
+          "y": 860,
+          "button": "left",
+          "selector": "screen(1455,860)"
+        }
+      },
+      {
+        "id": "step_1778036235882_click",
+        "type": "click",
+        "timestamp": "2026-05-06T02:57:15.882Z",
+        "payload": {
+          "x": 1136,
+          "y": 95,
+          "button": "left",
+          "selector": "screen(1136,95)"
+        }
+      },
+      {
+        "id": "step_1778036240238_key",
+        "type": "keydown",
+        "timestamp": "2026-05-06T02:57:20.239Z",
+        "payload": {
+          "key": "Enter"
+        }
+      },
+      {
+        "id": "step_1778036244866_click",
+        "type": "click",
+        "timestamp": "2026-05-06T02:57:24.866Z",
+        "payload": {
+          "x": 1393,
+          "y": 1058,
+          "button": "left",
+          "selector": "screen(1393,1058)"
+        }
+      },
+      {
+        "id": "step_1778036246839_click",
+        "type": "click",
+        "timestamp": "2026-05-06T02:57:26.839Z",
+        "payload": {
+          "x": 549,
+          "y": 373,
+          "button": "left",
+          "selector": "screen(549,373)"
+        }
+      }
+    ],
+    "steps": [],
+    "updated_at": "2026-05-06T02:57:32.415533"
   }
 }

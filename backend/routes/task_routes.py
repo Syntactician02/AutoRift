@@ -10,29 +10,27 @@ from utils.task_logger import (
 
 router = APIRouter()
 
+
 @router.post("/start-task")
 async def start_task(request: TaskRequest, background_tasks: BackgroundTasks):
     task_id = request.task_id or str(uuid.uuid4())
 
-    # ✅ Log to tasks_log.json FIRST
     save_task(
         task_id=task_id,
         task=request.task,
-        shortcut_key=request.shortcut_key
+        shortcut_key=request.shortcut_key,
+        recorded_steps=request.recorded_steps or []
     )
 
-    # Plan steps via Gemini
     steps = await plan_task(request.task)
+
     if not steps:
         return {
             "status": "error",
             "message": "Planner returned no steps. Check GEMINI_API_KEY in .env"
         }
 
-    # Save steps to log
     update_task_steps(task_id, steps)
-
-    # Execute in background — API returns immediately
     background_tasks.add_task(execute_steps, steps, task_id)
 
     return {
