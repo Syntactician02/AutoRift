@@ -21,16 +21,15 @@ function buildStep(type, payload) {
 }
 
 export function useRecorder() {
-  const [isRecording, setIsRecording]     = useState(false);
-  const [steps, setSteps]                 = useState([]);
-  const [status, setStatus]               = useState('idle');
-  const [error, setError]                 = useState(null);
-  const [executionLog, setExecutionLog]   = useState([]);
-  const [taskId, setTaskId]               = useState(null);
-  const listenersRef                      = useRef([]);
-  const pollRef                           = useRef(null);
+  const [isRecording, setIsRecording]   = useState(false);
+  const [steps, setSteps]               = useState([]);
+  const [status, setStatus]             = useState('idle');
+  const [error, setError]               = useState(null);
+  const [executionLog, setExecutionLog] = useState([]);
+  const [taskId, setTaskId]             = useState(null);
+  const listenersRef                    = useRef([]);
+  const pollRef                         = useRef(null);
 
-  // ── Global steps from Electron (cross-app recording) ──────────────────────
   useEffect(() => {
     if (!window.electronAPI?.onGlobalStep) return;
     window.electronAPI.onGlobalStep((step) => {
@@ -39,12 +38,10 @@ export function useRecorder() {
     return () => window.electronAPI.removeAllListeners('global:step');
   }, []);
 
-  // ── DOM listener helpers ───────────────────────────────────────────────────
   const addStep = useCallback((step) => {
     setSteps((prev) => [...prev, step]);
   }, []);
 
-  // ── Start Recording ────────────────────────────────────────────────────────
   const startRecording = useCallback(() => {
     setError(null);
     setExecutionLog([]);
@@ -57,7 +54,6 @@ export function useRecorder() {
 
     const onClick = (e) => {
       const el = e.target;
-      // ignore clicks inside the AutoRift UI itself
       if (el.closest('[data-autorift-ui]')) return;
       const selector = buildSelector(el);
       addStep(buildStep(ACTION_TYPES.CLICK, {
@@ -89,6 +85,15 @@ export function useRecorder() {
       }
     };
 
+    let lastUrl = window.location.href;
+    const urlPollId = setInterval(() => {
+      const current = window.location.href;
+      if (current !== lastUrl) {
+        lastUrl = current;
+        addStep(buildStep(ACTION_TYPES.NAVIGATE, { url: current }));
+      }
+    }, 800);
+
     document.addEventListener('click', onClick, true);
     document.addEventListener('input', onInput, true);
     document.addEventListener('keydown', onKeydown, true);
@@ -97,10 +102,10 @@ export function useRecorder() {
       () => document.removeEventListener('click', onClick, true),
       () => document.removeEventListener('input', onInput, true),
       () => document.removeEventListener('keydown', onKeydown, true),
+      () => clearInterval(urlPollId),
     ];
   }, [addStep]);
 
-  // ── Stop Recording ─────────────────────────────────────────────────────────
   const stopRecording = useCallback(() => {
     listenersRef.current.forEach((remove) => remove());
     listenersRef.current = [];
@@ -109,7 +114,6 @@ export function useRecorder() {
     window.electronAPI?.recordingStopped();
   }, []);
 
-  // ── Clear ──────────────────────────────────────────────────────────────────
   const clearSteps = useCallback(() => {
     setSteps([]);
     setError(null);
@@ -124,7 +128,6 @@ export function useRecorder() {
     setSteps((prev) => prev.filter((s) => s.id !== id));
   }, []);
 
-  // ── Export JSON ────────────────────────────────────────────────────────────
   const exportJSON = useCallback(() => {
     const blob = new Blob([JSON.stringify(steps, null, 2)], { type: 'application/json' });
     const url = URL.createObjectURL(blob);
@@ -135,7 +138,6 @@ export function useRecorder() {
     URL.revokeObjectURL(url);
   }, [steps]);
 
-  // ── Poll backend logs ──────────────────────────────────────────────────────
   function startPolling(id) {
     clearInterval(pollRef.current);
     pollRef.current = setInterval(async () => {
@@ -143,7 +145,7 @@ export function useRecorder() {
         const res = await fetch('http://localhost:8000/status');
         const data = await res.json();
         if (data.logs?.length) {
-          setExecutionLog(data.logs.slice(-50));
+          setExecutionLog(data.logs.slice(-100));
         }
         if (!data.is_running) {
           clearInterval(pollRef.current);
@@ -152,10 +154,9 @@ export function useRecorder() {
       } catch (e) {
         clearInterval(pollRef.current);
       }
-    }, 2000);
+    }, 800);
   }
 
-  // ── Submit to Backend — stores steps + task in tasks_log.json ─────────────
   const submitToBackend = useCallback(async (shortcutKey = null) => {
     if (!steps.length) {
       setError('No steps recorded. Record something first.');
@@ -164,7 +165,6 @@ export function useRecorder() {
     setStatus('submitting');
     setError(null);
 
-    // Convert recorded steps into a task description
     const taskDescription = steps
       .map((s, i) => {
         if (s.type === 'click')    return `Click on ${s.payload.text || s.payload.selector}`;
@@ -185,12 +185,10 @@ export function useRecorder() {
           recorded_steps: steps,
         }),
       });
-
       const data = await res.json();
-
       if (data.status === 'started') {
         setTaskId(data.task_id);
-        setExecutionLog([`✅ Task stored with ID: ${data.task_id}`, `📋 ${data.steps_planned} steps planned`]);
+        setExecutionLog([`✅ Task stored: ${data.task_id}`, `📋 ${data.steps_planned} steps`]);
         setStatus('submitted');
       } else {
         setError(data.message || 'Submission failed');
@@ -202,7 +200,6 @@ export function useRecorder() {
     }
   }, [steps]);
 
-  // ── Run Execution — executes stored task via backend ──────────────────────
   const runExecution = useCallback(async (shortcutKey = null) => {
     if (!steps.length) {
       setError('No steps to execute.');
@@ -232,12 +229,10 @@ export function useRecorder() {
           recorded_steps: steps,
         }),
       });
-
       const data = await res.json();
-
       if (data.status === 'started') {
         setTaskId(data.task_id);
-        setExecutionLog([`▶ Executing task: ${data.task_id}`, `📋 ${data.steps_planned} steps`]);
+        setExecutionLog([`▶ Executing: ${data.task_id}`, `📋 ${data.steps_planned} steps`]);
         startPolling(data.task_id);
       } else {
         setError(data.message || 'Execution failed');
@@ -250,23 +245,12 @@ export function useRecorder() {
   }, [steps]);
 
   return {
-    isRecording,
-    steps,
-    status,
-    error,
-    executionLog,
-    taskId,
-    startRecording,
-    stopRecording,
-    clearSteps,
-    removeStep,
-    submitToBackend,
-    runExecution,
-    exportJSON,
+    isRecording, steps, status, error, executionLog, taskId,
+    startRecording, stopRecording, clearSteps, removeStep,
+    submitToBackend, runExecution, exportJSON,
   };
 }
 
-// ── Utility: build a best-effort CSS selector ──────────────────────────────────
 function buildSelector(el) {
   if (el.id) return `#${el.id}`;
   if (el.dataset?.testid) return `[data-testid="${el.dataset.testid}"]`;

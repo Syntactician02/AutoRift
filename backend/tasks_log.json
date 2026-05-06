@@ -272,5 +272,3825 @@
     ],
     "steps": [],
     "updated_at": "2026-05-06T02:57:32.415533"
+  },
+  "b4a5f99c-8038-43ff-8645-88a9bc6e84c5": {
+    "task": "Click on screen(1056,596), then Click on screen(1056,596), then Click on screen(1056,596), then Click on screen(1056,596), then Click on screen(1056,596), then Click on screen(1229,1040), then Click on screen(1475,898), then Click on screen(382,3), then Press Enter, then Click on screen(703,39), then Click on screen(1371,1057), then Click on screen(431,351)",
+    "shortcut_key": null,
+    "status": "running",
+    "created_at": "2026-05-06T03:05:01.369128",
+    "recorded_steps": [
+      {
+        "id": "step_1778036670839_click",
+        "type": "click",
+        "timestamp": "2026-05-06T03:04:30.839Z",
+        "payload": {
+          "x": 1056,
+          "y": 596,
+          "button": "left",
+          "selector": "screen(1056,596)"
+        }
+      },
+      {
+        "id": "step_1778036671005_click",
+        "type": "click",
+        "timestamp": "2026-05-06T03:04:31.005Z",
+        "payload": {
+          "x": 1056,
+          "y": 596,
+          "button": "left",
+          "selector": "screen(1056,596)"
+        }
+      },
+      {
+        "id": "step_1778036671136_click",
+        "type": "click",
+        "timestamp": "2026-05-06T03:04:31.136Z",
+        "payload": {
+          "x": 1056,
+          "y": 596,
+          "button": "left",
+          "selector": "screen(1056,596)"
+        }
+      },
+      {
+        "id": "step_1778036671302_click",
+        "type": "click",
+        "timestamp": "2026-05-06T03:04:31.302Z",
+        "payload": {
+          "x": 1056,
+          "y": 596,
+          "button": "left",
+          "selector": "screen(1056,596)"
+        }
+      },
+      {
+        "id": "step_1778036671528_click",
+        "type": "click",
+        "timestamp": "2026-05-06T03:04:31.528Z",
+        "payload": {
+          "x": 1056,
+          "y": 596,
+          "button": "left",
+          "selector": "screen(1056,596)"
+        }
+      },
+      {
+        "id": "step_1778036673114_click",
+        "type": "click",
+        "timestamp": "2026-05-06T03:04:33.114Z",
+        "payload": {
+          "x": 1229,
+          "y": 1040,
+          "button": "left",
+          "selector": "screen(1229,1040)"
+        }
+      },
+      {
+        "id": "step_1778036675121_click",
+        "type": "click",
+        "timestamp": "2026-05-06T03:04:35.121Z",
+        "payload": {
+          "x": 1475,
+          "y": 898,
+          "button": "left",
+          "selector": "screen(1475,898)"
+        }
+      },
+      {
+        "id": "step_1778036676754_click",
+        "type": "click",
+        "timestamp": "2026-05-06T03:04:36.755Z",
+        "payload": {
+          "x": 382,
+          "y": 3,
+          "button": "left",
+          "selector": "screen(382,3)"
+        }
+      },
+      {
+        "id": "step_1778036680053_key",
+        "type": "keydown",
+        "timestamp": "2026-05-06T03:04:40.053Z",
+        "payload": {
+          "key": "Enter"
+        }
+      },
+      {
+        "id": "step_1778036688289_click",
+        "type": "click",
+        "timestamp": "2026-05-06T03:04:48.289Z",
+        "payload": {
+          "x": 703,
+          "y": 39,
+          "button": "left",
+          "selector": "screen(703,39)"
+        }
+      },
+      {
+        "id": "step_1778036692802_click",
+        "type": "click",
+        "timestamp": "2026-05-06T03:04:52.802Z",
+        "payload": {
+          "x": 1371,
+          "y": 1057,
+          "button": "left",
+          "selector": "screen(1371,1057)"
+        }
+      },
+      {
+        "id": "step_1778036694287_click",
+        "type": "click",
+        "timestamp": "2026-05-06T03:04:54.287Z",
+        "payload": {
+          "x": 431,
+          "y": 351,
+          "button": "left",
+          "selector": "screen(431,351)"
+        }
+      }
+    ],
+    "steps": [],
+    "updated_at": "2026-05-06T03:05:02.198864"
+  },
+  "62f6a268-c0eb-4462-b714-9a3af9f95c85": {
+    "task": "Click on screen(1056,596), then Click on screen(1056,596), then Click on screen(1056,596), then Click on screen(1056,596), then Click on screen(1056,596), then Click on screen(1229,1040), then Click on screen(1475,898), then Click on screen(382,3), then Press Enter, then Click on screen(703,39), then Click on screen(1371,1057), then Click on screen(431,351)",
+    "shortcut_key": null,
+    "status": "running",
+    "created_at": "2026-05-06T03:05:06.641504",
+    "recorded_steps": [
+      {
+        "id": "step_1778036670839_click",
+        "type": "click",
+        "timestamp": "2026-05-06T03:04:30.839Z",
+        "payload": {
+          "x": 1056,
+          "y": 596,
+          "button": "left",
+          "selector": "screen(1056,596)"
+        }
+      },
+      {
+        "id": "step_1778036671005_click",
+        "type": "click",
+        "timestamp": "2026-05-06T03:04:31.005Z",
+        "payload": {
+          "x": 1056,
+          "y": 596,
+          "button": "left",
+          "selector": "screen(1056,596)"
+        }
+      },
+      {
+        "id": "step_1778036671136_click",
+        "type": "click",
+        "timestamp": "2026-05-06T03:04:31.136Z",
+        "payload": {
+          "x": 1056,
+          "y": 596,
+          "button": "left",
+          "selector": "screen(1056,596)"
+        }
+      },
+      {
+        "id": "step_1778036671302_click",
+        "type": "click",
+        "timestamp": "2026-05-06T03:04:31.302Z",
+        "payload": {
+          "x": 1056,
+          "y": 596,
+          "button": "left",
+          "selector": "screen(1056,596)"
+        }
+      },
+      {
+        "id": "step_1778036671528_click",
+        "type": "click",
+        "timestamp": "2026-05-06T03:04:31.528Z",
+        "payload": {
+          "x": 1056,
+          "y": 596,
+          "button": "left",
+          "selector": "screen(1056,596)"
+        }
+      },
+      {
+        "id": "step_1778036673114_click",
+        "type": "click",
+        "timestamp": "2026-05-06T03:04:33.114Z",
+        "payload": {
+          "x": 1229,
+          "y": 1040,
+          "button": "left",
+          "selector": "screen(1229,1040)"
+        }
+      },
+      {
+        "id": "step_1778036675121_click",
+        "type": "click",
+        "timestamp": "2026-05-06T03:04:35.121Z",
+        "payload": {
+          "x": 1475,
+          "y": 898,
+          "button": "left",
+          "selector": "screen(1475,898)"
+        }
+      },
+      {
+        "id": "step_1778036676754_click",
+        "type": "click",
+        "timestamp": "2026-05-06T03:04:36.755Z",
+        "payload": {
+          "x": 382,
+          "y": 3,
+          "button": "left",
+          "selector": "screen(382,3)"
+        }
+      },
+      {
+        "id": "step_1778036680053_key",
+        "type": "keydown",
+        "timestamp": "2026-05-06T03:04:40.053Z",
+        "payload": {
+          "key": "Enter"
+        }
+      },
+      {
+        "id": "step_1778036688289_click",
+        "type": "click",
+        "timestamp": "2026-05-06T03:04:48.289Z",
+        "payload": {
+          "x": 703,
+          "y": 39,
+          "button": "left",
+          "selector": "screen(703,39)"
+        }
+      },
+      {
+        "id": "step_1778036692802_click",
+        "type": "click",
+        "timestamp": "2026-05-06T03:04:52.802Z",
+        "payload": {
+          "x": 1371,
+          "y": 1057,
+          "button": "left",
+          "selector": "screen(1371,1057)"
+        }
+      },
+      {
+        "id": "step_1778036694287_click",
+        "type": "click",
+        "timestamp": "2026-05-06T03:04:54.287Z",
+        "payload": {
+          "x": 431,
+          "y": 351,
+          "button": "left",
+          "selector": "screen(431,351)"
+        }
+      }
+    ],
+    "steps": [],
+    "updated_at": "2026-05-06T03:05:06.802953"
+  },
+  "5b7a3874-cfd6-4504-a98b-e210ecd84635": {
+    "task": "Click on screen(1229,1036), then Click on screen(1577,877), then Click on screen(1028,98), then Press Enter, then Press Enter, then Click on screen(1351,1041), then Click on screen(591,370)",
+    "shortcut_key": null,
+    "status": "error",
+    "created_at": "2026-05-06T03:45:00.781898",
+    "steps": [
+      {
+        "type": "browser",
+        "action": "click_coords",
+        "params": {
+          "x": 1229,
+          "y": 1036
+        },
+        "description": "Click at screen(1229,1036)"
+      },
+      {
+        "type": "browser",
+        "action": "click_coords",
+        "params": {
+          "x": 1577,
+          "y": 877
+        },
+        "description": "Click at screen(1577,877)"
+      },
+      {
+        "type": "browser",
+        "action": "click_coords",
+        "params": {
+          "x": 1028,
+          "y": 98
+        },
+        "description": "Click at screen(1028,98)"
+      },
+      {
+        "type": "browser",
+        "action": "keydown",
+        "params": {
+          "key": "Enter"
+        },
+        "description": "Press Enter"
+      },
+      {
+        "type": "browser",
+        "action": "keydown",
+        "params": {
+          "key": "Enter"
+        },
+        "description": "Press Enter"
+      },
+      {
+        "type": "browser",
+        "action": "click_coords",
+        "params": {
+          "x": 1351,
+          "y": 1041
+        },
+        "description": "Click at screen(1351,1041)"
+      },
+      {
+        "type": "browser",
+        "action": "click_coords",
+        "params": {
+          "x": 591,
+          "y": 370
+        },
+        "description": "Click at screen(591,370)"
+      }
+    ],
+    "recorded_steps": [
+      {
+        "id": "step_1778039056433_click",
+        "type": "click",
+        "timestamp": "2026-05-06T03:44:16.433Z",
+        "payload": {
+          "x": 1229,
+          "y": 1036,
+          "button": "left",
+          "selector": "screen(1229,1036)"
+        }
+      },
+      {
+        "id": "step_1778039057752_click",
+        "type": "click",
+        "timestamp": "2026-05-06T03:44:17.752Z",
+        "payload": {
+          "x": 1577,
+          "y": 877,
+          "button": "left",
+          "selector": "screen(1577,877)"
+        }
+      },
+      {
+        "id": "step_1778039059084_click",
+        "type": "click",
+        "timestamp": "2026-05-06T03:44:19.084Z",
+        "payload": {
+          "x": 1028,
+          "y": 98,
+          "button": "left",
+          "selector": "screen(1028,98)"
+        }
+      },
+      {
+        "id": "step_1778039063076_key",
+        "type": "keydown",
+        "timestamp": "2026-05-06T03:44:23.076Z",
+        "payload": {
+          "key": "Enter"
+        }
+      },
+      {
+        "id": "step_1778039069475_key",
+        "type": "keydown",
+        "timestamp": "2026-05-06T03:44:29.475Z",
+        "payload": {
+          "key": "Enter"
+        }
+      },
+      {
+        "id": "step_1778039075578_click",
+        "type": "click",
+        "timestamp": "2026-05-06T03:44:35.578Z",
+        "payload": {
+          "x": 1351,
+          "y": 1041,
+          "button": "left",
+          "selector": "screen(1351,1041)"
+        }
+      },
+      {
+        "id": "step_1778039078791_click",
+        "type": "click",
+        "timestamp": "2026-05-06T03:44:38.791Z",
+        "payload": {
+          "x": 591,
+          "y": 370,
+          "button": "left",
+          "selector": "screen(591,370)"
+        }
+      }
+    ],
+    "updated_at": "2026-05-06T03:45:01.070685"
+  },
+  "53bd2be9-33bc-47ab-b31b-214b439df208": {
+    "task": "Click on screen(1229,1036), then Click on screen(1577,877), then Click on screen(1028,98), then Press Enter, then Press Enter, then Click on screen(1351,1041), then Click on screen(591,370)",
+    "shortcut_key": null,
+    "status": "error",
+    "created_at": "2026-05-06T03:45:30.176939",
+    "steps": [
+      {
+        "type": "browser",
+        "action": "click_coords",
+        "params": {
+          "x": 1229,
+          "y": 1036
+        },
+        "description": "Click at screen(1229,1036)"
+      },
+      {
+        "type": "browser",
+        "action": "click_coords",
+        "params": {
+          "x": 1577,
+          "y": 877
+        },
+        "description": "Click at screen(1577,877)"
+      },
+      {
+        "type": "browser",
+        "action": "click_coords",
+        "params": {
+          "x": 1028,
+          "y": 98
+        },
+        "description": "Click at screen(1028,98)"
+      },
+      {
+        "type": "browser",
+        "action": "keydown",
+        "params": {
+          "key": "Enter"
+        },
+        "description": "Press Enter"
+      },
+      {
+        "type": "browser",
+        "action": "keydown",
+        "params": {
+          "key": "Enter"
+        },
+        "description": "Press Enter"
+      },
+      {
+        "type": "browser",
+        "action": "click_coords",
+        "params": {
+          "x": 1351,
+          "y": 1041
+        },
+        "description": "Click at screen(1351,1041)"
+      },
+      {
+        "type": "browser",
+        "action": "click_coords",
+        "params": {
+          "x": 591,
+          "y": 370
+        },
+        "description": "Click at screen(591,370)"
+      }
+    ],
+    "recorded_steps": [
+      {
+        "id": "step_1778039056433_click",
+        "type": "click",
+        "timestamp": "2026-05-06T03:44:16.433Z",
+        "payload": {
+          "x": 1229,
+          "y": 1036,
+          "button": "left",
+          "selector": "screen(1229,1036)"
+        }
+      },
+      {
+        "id": "step_1778039057752_click",
+        "type": "click",
+        "timestamp": "2026-05-06T03:44:17.752Z",
+        "payload": {
+          "x": 1577,
+          "y": 877,
+          "button": "left",
+          "selector": "screen(1577,877)"
+        }
+      },
+      {
+        "id": "step_1778039059084_click",
+        "type": "click",
+        "timestamp": "2026-05-06T03:44:19.084Z",
+        "payload": {
+          "x": 1028,
+          "y": 98,
+          "button": "left",
+          "selector": "screen(1028,98)"
+        }
+      },
+      {
+        "id": "step_1778039063076_key",
+        "type": "keydown",
+        "timestamp": "2026-05-06T03:44:23.076Z",
+        "payload": {
+          "key": "Enter"
+        }
+      },
+      {
+        "id": "step_1778039069475_key",
+        "type": "keydown",
+        "timestamp": "2026-05-06T03:44:29.475Z",
+        "payload": {
+          "key": "Enter"
+        }
+      },
+      {
+        "id": "step_1778039075578_click",
+        "type": "click",
+        "timestamp": "2026-05-06T03:44:35.578Z",
+        "payload": {
+          "x": 1351,
+          "y": 1041,
+          "button": "left",
+          "selector": "screen(1351,1041)"
+        }
+      },
+      {
+        "id": "step_1778039078791_click",
+        "type": "click",
+        "timestamp": "2026-05-06T03:44:38.791Z",
+        "payload": {
+          "x": 591,
+          "y": 370,
+          "button": "left",
+          "selector": "screen(591,370)"
+        }
+      }
+    ],
+    "updated_at": "2026-05-06T03:45:30.290622"
+  },
+  "c5d73afa-b345-42ee-9365-c8b1f878a777": {
+    "task": "Click on screen(1229,1036), then Click on screen(1577,877), then Click on screen(1028,98), then Press Enter, then Press Enter, then Click on screen(1351,1041), then Click on screen(591,370)",
+    "shortcut_key": null,
+    "status": "error",
+    "created_at": "2026-05-06T03:45:31.651858",
+    "steps": [
+      {
+        "type": "browser",
+        "action": "click_coords",
+        "params": {
+          "x": 1229,
+          "y": 1036
+        },
+        "description": "Click at screen(1229,1036)"
+      },
+      {
+        "type": "browser",
+        "action": "click_coords",
+        "params": {
+          "x": 1577,
+          "y": 877
+        },
+        "description": "Click at screen(1577,877)"
+      },
+      {
+        "type": "browser",
+        "action": "click_coords",
+        "params": {
+          "x": 1028,
+          "y": 98
+        },
+        "description": "Click at screen(1028,98)"
+      },
+      {
+        "type": "browser",
+        "action": "keydown",
+        "params": {
+          "key": "Enter"
+        },
+        "description": "Press Enter"
+      },
+      {
+        "type": "browser",
+        "action": "keydown",
+        "params": {
+          "key": "Enter"
+        },
+        "description": "Press Enter"
+      },
+      {
+        "type": "browser",
+        "action": "click_coords",
+        "params": {
+          "x": 1351,
+          "y": 1041
+        },
+        "description": "Click at screen(1351,1041)"
+      },
+      {
+        "type": "browser",
+        "action": "click_coords",
+        "params": {
+          "x": 591,
+          "y": 370
+        },
+        "description": "Click at screen(591,370)"
+      }
+    ],
+    "recorded_steps": [
+      {
+        "id": "step_1778039056433_click",
+        "type": "click",
+        "timestamp": "2026-05-06T03:44:16.433Z",
+        "payload": {
+          "x": 1229,
+          "y": 1036,
+          "button": "left",
+          "selector": "screen(1229,1036)"
+        }
+      },
+      {
+        "id": "step_1778039057752_click",
+        "type": "click",
+        "timestamp": "2026-05-06T03:44:17.752Z",
+        "payload": {
+          "x": 1577,
+          "y": 877,
+          "button": "left",
+          "selector": "screen(1577,877)"
+        }
+      },
+      {
+        "id": "step_1778039059084_click",
+        "type": "click",
+        "timestamp": "2026-05-06T03:44:19.084Z",
+        "payload": {
+          "x": 1028,
+          "y": 98,
+          "button": "left",
+          "selector": "screen(1028,98)"
+        }
+      },
+      {
+        "id": "step_1778039063076_key",
+        "type": "keydown",
+        "timestamp": "2026-05-06T03:44:23.076Z",
+        "payload": {
+          "key": "Enter"
+        }
+      },
+      {
+        "id": "step_1778039069475_key",
+        "type": "keydown",
+        "timestamp": "2026-05-06T03:44:29.475Z",
+        "payload": {
+          "key": "Enter"
+        }
+      },
+      {
+        "id": "step_1778039075578_click",
+        "type": "click",
+        "timestamp": "2026-05-06T03:44:35.578Z",
+        "payload": {
+          "x": 1351,
+          "y": 1041,
+          "button": "left",
+          "selector": "screen(1351,1041)"
+        }
+      },
+      {
+        "id": "step_1778039078791_click",
+        "type": "click",
+        "timestamp": "2026-05-06T03:44:38.791Z",
+        "payload": {
+          "x": 591,
+          "y": 370,
+          "button": "left",
+          "selector": "screen(591,370)"
+        }
+      }
+    ],
+    "updated_at": "2026-05-06T03:45:31.808561"
+  },
+  "9aa9d1ad-dbbc-417b-ab67-01a049a32b37": {
+    "task": "Click on screen(1212,1031), then Click on screen(1250,924), then Click on screen(1412,24), then Press Backspace, then Press Backspace, then Press Enter, then Click on screen(1367,25), then Click on screen(1407,39), then Press Enter, then Press Enter, then Click on screen(1353,37), then Click on screen(1359,1045), then Click on screen(572,364)",
+    "shortcut_key": null,
+    "status": "error",
+    "created_at": "2026-05-06T03:59:40.247463",
+    "steps": [
+      {
+        "type": "browser",
+        "action": "click_coords",
+        "params": {
+          "x": 1212,
+          "y": 1031
+        },
+        "description": "Click at screen(1212,1031)"
+      },
+      {
+        "type": "browser",
+        "action": "click_coords",
+        "params": {
+          "x": 1250,
+          "y": 924
+        },
+        "description": "Click at screen(1250,924)"
+      },
+      {
+        "type": "browser",
+        "action": "click_coords",
+        "params": {
+          "x": 1412,
+          "y": 24
+        },
+        "description": "Click at screen(1412,24)"
+      },
+      {
+        "type": "browser",
+        "action": "keydown",
+        "params": {
+          "key": "Backspace"
+        },
+        "description": "Press Backspace"
+      },
+      {
+        "type": "browser",
+        "action": "keydown",
+        "params": {
+          "key": "Backspace"
+        },
+        "description": "Press Backspace"
+      },
+      {
+        "type": "browser",
+        "action": "keydown",
+        "params": {
+          "key": "Enter"
+        },
+        "description": "Press Enter"
+      },
+      {
+        "type": "browser",
+        "action": "click_coords",
+        "params": {
+          "x": 1367,
+          "y": 25
+        },
+        "description": "Click at screen(1367,25)"
+      },
+      {
+        "type": "browser",
+        "action": "click_coords",
+        "params": {
+          "x": 1407,
+          "y": 39
+        },
+        "description": "Click at screen(1407,39)"
+      },
+      {
+        "type": "browser",
+        "action": "keydown",
+        "params": {
+          "key": "Enter"
+        },
+        "description": "Press Enter"
+      },
+      {
+        "type": "browser",
+        "action": "keydown",
+        "params": {
+          "key": "Enter"
+        },
+        "description": "Press Enter"
+      },
+      {
+        "type": "browser",
+        "action": "click_coords",
+        "params": {
+          "x": 1353,
+          "y": 37
+        },
+        "description": "Click at screen(1353,37)"
+      },
+      {
+        "type": "browser",
+        "action": "click_coords",
+        "params": {
+          "x": 1359,
+          "y": 1045
+        },
+        "description": "Click at screen(1359,1045)"
+      },
+      {
+        "type": "browser",
+        "action": "click_coords",
+        "params": {
+          "x": 572,
+          "y": 364
+        },
+        "description": "Click at screen(572,364)"
+      }
+    ],
+    "recorded_steps": [
+      {
+        "id": "step_1778039949986_click",
+        "type": "click",
+        "timestamp": "2026-05-06T03:59:09.986Z",
+        "payload": {
+          "x": 1212,
+          "y": 1031,
+          "button": "left",
+          "selector": "screen(1212,1031)"
+        }
+      },
+      {
+        "id": "step_1778039950798_click",
+        "type": "click",
+        "timestamp": "2026-05-06T03:59:10.798Z",
+        "payload": {
+          "x": 1250,
+          "y": 924,
+          "button": "left",
+          "selector": "screen(1250,924)"
+        }
+      },
+      {
+        "id": "step_1778039952434_click",
+        "type": "click",
+        "timestamp": "2026-05-06T03:59:12.434Z",
+        "payload": {
+          "x": 1412,
+          "y": 24,
+          "button": "left",
+          "selector": "screen(1412,24)"
+        }
+      },
+      {
+        "id": "step_1778039954467_key",
+        "type": "keydown",
+        "timestamp": "2026-05-06T03:59:14.467Z",
+        "payload": {
+          "key": "Backspace"
+        }
+      },
+      {
+        "id": "step_1778039954674_key",
+        "type": "keydown",
+        "timestamp": "2026-05-06T03:59:14.674Z",
+        "payload": {
+          "key": "Backspace"
+        }
+      },
+      {
+        "id": "step_1778039956600_key",
+        "type": "keydown",
+        "timestamp": "2026-05-06T03:59:16.600Z",
+        "payload": {
+          "key": "Enter"
+        }
+      },
+      {
+        "id": "step_1778039959837_click",
+        "type": "click",
+        "timestamp": "2026-05-06T03:59:19.837Z",
+        "payload": {
+          "x": 1367,
+          "y": 25,
+          "button": "left",
+          "selector": "screen(1367,25)"
+        }
+      },
+      {
+        "id": "step_1778039961880_click",
+        "type": "click",
+        "timestamp": "2026-05-06T03:59:21.880Z",
+        "payload": {
+          "x": 1407,
+          "y": 39,
+          "button": "left",
+          "selector": "screen(1407,39)"
+        }
+      },
+      {
+        "id": "step_1778039965795_key",
+        "type": "keydown",
+        "timestamp": "2026-05-06T03:59:25.795Z",
+        "payload": {
+          "key": "Enter"
+        }
+      },
+      {
+        "id": "step_1778039968603_key",
+        "type": "keydown",
+        "timestamp": "2026-05-06T03:59:28.603Z",
+        "payload": {
+          "key": "Enter"
+        }
+      },
+      {
+        "id": "step_1778039972629_click",
+        "type": "click",
+        "timestamp": "2026-05-06T03:59:32.629Z",
+        "payload": {
+          "x": 1353,
+          "y": 37,
+          "button": "left",
+          "selector": "screen(1353,37)"
+        }
+      },
+      {
+        "id": "step_1778039974234_click",
+        "type": "click",
+        "timestamp": "2026-05-06T03:59:34.234Z",
+        "payload": {
+          "x": 1359,
+          "y": 1045,
+          "button": "left",
+          "selector": "screen(1359,1045)"
+        }
+      },
+      {
+        "id": "step_1778039976223_click",
+        "type": "click",
+        "timestamp": "2026-05-06T03:59:36.223Z",
+        "payload": {
+          "x": 572,
+          "y": 364,
+          "button": "left",
+          "selector": "screen(572,364)"
+        }
+      }
+    ],
+    "updated_at": "2026-05-06T03:59:40.600611"
+  },
+  "d634ffbe-7514-41c1-8907-f9902ceb7818": {
+    "task": "Click on screen(1228,1070), then Click on screen(1317,878), then Click on screen(1409,15), then Press Enter, then Click on screen(1359,30), then Click on screen(1340,1061), then Click on screen(521,343)",
+    "shortcut_key": null,
+    "status": "error",
+    "created_at": "2026-05-06T04:02:02.095024",
+    "steps": [
+      {
+        "type": "browser",
+        "action": "click_coords",
+        "params": {
+          "x": 1228,
+          "y": 1070
+        },
+        "description": "Click at screen(1228,1070)"
+      },
+      {
+        "type": "browser",
+        "action": "click_coords",
+        "params": {
+          "x": 1317,
+          "y": 878
+        },
+        "description": "Click at screen(1317,878)"
+      },
+      {
+        "type": "browser",
+        "action": "click_coords",
+        "params": {
+          "x": 1409,
+          "y": 15
+        },
+        "description": "Click at screen(1409,15)"
+      },
+      {
+        "type": "browser",
+        "action": "keydown",
+        "params": {
+          "key": "Enter"
+        },
+        "description": "Press Enter"
+      },
+      {
+        "type": "browser",
+        "action": "click_coords",
+        "params": {
+          "x": 1359,
+          "y": 30
+        },
+        "description": "Click at screen(1359,30)"
+      },
+      {
+        "type": "browser",
+        "action": "click_coords",
+        "params": {
+          "x": 1340,
+          "y": 1061
+        },
+        "description": "Click at screen(1340,1061)"
+      },
+      {
+        "type": "browser",
+        "action": "click_coords",
+        "params": {
+          "x": 521,
+          "y": 343
+        },
+        "description": "Click at screen(521,343)"
+      }
+    ],
+    "recorded_steps": [
+      {
+        "id": "step_1778040104000_click",
+        "type": "click",
+        "timestamp": "2026-05-06T04:01:44.000Z",
+        "payload": {
+          "x": 1228,
+          "y": 1070,
+          "button": "left",
+          "selector": "screen(1228,1070)"
+        }
+      },
+      {
+        "id": "step_1778040105407_click",
+        "type": "click",
+        "timestamp": "2026-05-06T04:01:45.407Z",
+        "payload": {
+          "x": 1317,
+          "y": 878,
+          "button": "left",
+          "selector": "screen(1317,878)"
+        }
+      },
+      {
+        "id": "step_1778040107168_click",
+        "type": "click",
+        "timestamp": "2026-05-06T04:01:47.168Z",
+        "payload": {
+          "x": 1409,
+          "y": 15,
+          "button": "left",
+          "selector": "screen(1409,15)"
+        }
+      },
+      {
+        "id": "step_1778040109035_key",
+        "type": "keydown",
+        "timestamp": "2026-05-06T04:01:49.035Z",
+        "payload": {
+          "key": "Enter"
+        }
+      },
+      {
+        "id": "step_1778040112626_click",
+        "type": "click",
+        "timestamp": "2026-05-06T04:01:52.626Z",
+        "payload": {
+          "x": 1359,
+          "y": 30,
+          "button": "left",
+          "selector": "screen(1359,30)"
+        }
+      },
+      {
+        "id": "step_1778040114486_click",
+        "type": "click",
+        "timestamp": "2026-05-06T04:01:54.486Z",
+        "payload": {
+          "x": 1340,
+          "y": 1061,
+          "button": "left",
+          "selector": "screen(1340,1061)"
+        }
+      },
+      {
+        "id": "step_1778040117349_click",
+        "type": "click",
+        "timestamp": "2026-05-06T04:01:57.349Z",
+        "payload": {
+          "x": 521,
+          "y": 343,
+          "button": "left",
+          "selector": "screen(521,343)"
+        }
+      }
+    ],
+    "updated_at": "2026-05-06T04:02:02.331349"
+  },
+  "5f09533d-b832-4b8c-82e1-2bf682246091": {
+    "task": "Click on screen(1257,1050), then Click on screen(1262,911), then Click on screen(1426,14), then Press Enter, then Click on screen(1356,39), then Click on screen(1371,1052), then Click on screen(567,363)",
+    "shortcut_key": null,
+    "status": "error",
+    "created_at": "2026-05-06T04:03:04.992626",
+    "steps": [
+      {
+        "type": "browser",
+        "action": "click_coords",
+        "params": {
+          "x": 1257,
+          "y": 1050
+        },
+        "description": "Click at screen(1257,1050)"
+      },
+      {
+        "type": "browser",
+        "action": "click_coords",
+        "params": {
+          "x": 1262,
+          "y": 911
+        },
+        "description": "Click at screen(1262,911)"
+      },
+      {
+        "type": "browser",
+        "action": "click_coords",
+        "params": {
+          "x": 1426,
+          "y": 14
+        },
+        "description": "Click at screen(1426,14)"
+      },
+      {
+        "type": "browser",
+        "action": "keydown",
+        "params": {
+          "key": "Enter"
+        },
+        "description": "Press Enter"
+      },
+      {
+        "type": "browser",
+        "action": "click_coords",
+        "params": {
+          "x": 1356,
+          "y": 39
+        },
+        "description": "Click at screen(1356,39)"
+      },
+      {
+        "type": "browser",
+        "action": "click_coords",
+        "params": {
+          "x": 1371,
+          "y": 1052
+        },
+        "description": "Click at screen(1371,1052)"
+      },
+      {
+        "type": "browser",
+        "action": "click_coords",
+        "params": {
+          "x": 567,
+          "y": 363
+        },
+        "description": "Click at screen(567,363)"
+      }
+    ],
+    "recorded_steps": [
+      {
+        "id": "step_1778040165478_click",
+        "type": "click",
+        "timestamp": "2026-05-06T04:02:45.478Z",
+        "payload": {
+          "x": 1257,
+          "y": 1050,
+          "button": "left",
+          "selector": "screen(1257,1050)"
+        }
+      },
+      {
+        "id": "step_1778040166482_click",
+        "type": "click",
+        "timestamp": "2026-05-06T04:02:46.482Z",
+        "payload": {
+          "x": 1262,
+          "y": 911,
+          "button": "left",
+          "selector": "screen(1262,911)"
+        }
+      },
+      {
+        "id": "step_1778040167966_click",
+        "type": "click",
+        "timestamp": "2026-05-06T04:02:47.966Z",
+        "payload": {
+          "x": 1426,
+          "y": 14,
+          "button": "left",
+          "selector": "screen(1426,14)"
+        }
+      },
+      {
+        "id": "step_1778040169567_key",
+        "type": "keydown",
+        "timestamp": "2026-05-06T04:02:49.567Z",
+        "payload": {
+          "key": "Enter"
+        }
+      },
+      {
+        "id": "step_1778040173788_click",
+        "type": "click",
+        "timestamp": "2026-05-06T04:02:53.789Z",
+        "payload": {
+          "x": 1356,
+          "y": 39,
+          "button": "left",
+          "selector": "screen(1356,39)"
+        }
+      },
+      {
+        "id": "step_1778040175824_click",
+        "type": "click",
+        "timestamp": "2026-05-06T04:02:55.824Z",
+        "payload": {
+          "x": 1371,
+          "y": 1052,
+          "button": "left",
+          "selector": "screen(1371,1052)"
+        }
+      },
+      {
+        "id": "step_1778040178588_click",
+        "type": "click",
+        "timestamp": "2026-05-06T04:02:58.588Z",
+        "payload": {
+          "x": 567,
+          "y": 363,
+          "button": "left",
+          "selector": "screen(567,363)"
+        }
+      }
+    ],
+    "updated_at": "2026-05-06T04:03:05.337699"
+  },
+  "c9ecd4ef-0144-46d5-ade0-88f46167b641": {
+    "task": "Click on screen(1228,1050), then Click on screen(1304,913), then Click on screen(1424,6), then Press Enter, then Click on screen(1359,41), then Click on screen(1364,1061), then Click on screen(576,345)",
+    "shortcut_key": null,
+    "status": "error",
+    "created_at": "2026-05-06T04:11:22.057459",
+    "steps": [
+      {
+        "type": "browser",
+        "action": "click",
+        "params": {
+          "selector": "screen(1228,1050)"
+        },
+        "description": "Click screen(1228,1050)"
+      },
+      {
+        "type": "browser",
+        "action": "click",
+        "params": {
+          "selector": "screen(1304,913)"
+        },
+        "description": "Click screen(1304,913)"
+      },
+      {
+        "type": "browser",
+        "action": "click",
+        "params": {
+          "selector": "screen(1424,6)"
+        },
+        "description": "Click screen(1424,6)"
+      },
+      {
+        "type": "browser",
+        "action": "keydown",
+        "params": {
+          "key": "Enter"
+        },
+        "description": "Press key: Enter"
+      },
+      {
+        "type": "browser",
+        "action": "click",
+        "params": {
+          "selector": "screen(1359,41)"
+        },
+        "description": "Click screen(1359,41)"
+      },
+      {
+        "type": "browser",
+        "action": "click",
+        "params": {
+          "selector": "screen(1364,1061)"
+        },
+        "description": "Click screen(1364,1061)"
+      },
+      {
+        "type": "browser",
+        "action": "click",
+        "params": {
+          "selector": "screen(576,345)"
+        },
+        "description": "Click screen(576,345)"
+      }
+    ],
+    "recorded_steps": [
+      {
+        "id": "step_1778040660936_click",
+        "type": "click",
+        "timestamp": "2026-05-06T04:11:00.936Z",
+        "payload": {
+          "x": 1228,
+          "y": 1050,
+          "button": "left",
+          "selector": "screen(1228,1050)"
+        }
+      },
+      {
+        "id": "step_1778040662493_click",
+        "type": "click",
+        "timestamp": "2026-05-06T04:11:02.494Z",
+        "payload": {
+          "x": 1304,
+          "y": 913,
+          "button": "left",
+          "selector": "screen(1304,913)"
+        }
+      },
+      {
+        "id": "step_1778040664008_click",
+        "type": "click",
+        "timestamp": "2026-05-06T04:11:04.008Z",
+        "payload": {
+          "x": 1424,
+          "y": 6,
+          "button": "left",
+          "selector": "screen(1424,6)"
+        }
+      },
+      {
+        "id": "step_1778040665707_key",
+        "type": "keydown",
+        "timestamp": "2026-05-06T04:11:05.707Z",
+        "payload": {
+          "key": "Enter"
+        }
+      },
+      {
+        "id": "step_1778040670445_click",
+        "type": "click",
+        "timestamp": "2026-05-06T04:11:10.445Z",
+        "payload": {
+          "x": 1359,
+          "y": 41,
+          "button": "left",
+          "selector": "screen(1359,41)"
+        }
+      },
+      {
+        "id": "step_1778040672539_click",
+        "type": "click",
+        "timestamp": "2026-05-06T04:11:12.539Z",
+        "payload": {
+          "x": 1364,
+          "y": 1061,
+          "button": "left",
+          "selector": "screen(1364,1061)"
+        }
+      },
+      {
+        "id": "step_1778040674636_click",
+        "type": "click",
+        "timestamp": "2026-05-06T04:11:14.636Z",
+        "payload": {
+          "x": 576,
+          "y": 345,
+          "button": "left",
+          "selector": "screen(576,345)"
+        }
+      }
+    ],
+    "updated_at": "2026-05-06T04:11:23.048369"
+  },
+  "001451cc-df81-4c2d-8aef-2a15a902523c": {
+    "task": "Click on screen(1219,1059), then Click on screen(1243,898), then Click on screen(1416,20), then Press Enter, then Click on screen(1358,30), then Click on screen(1338,1059), then Click on screen(559,356)",
+    "shortcut_key": null,
+    "status": "error",
+    "created_at": "2026-05-06T04:15:25.085396",
+    "steps": [
+      {
+        "type": "browser",
+        "action": "click",
+        "params": {
+          "x": 1219,
+          "y": 1059
+        },
+        "description": "Click screen(1219,1059)"
+      },
+      {
+        "type": "browser",
+        "action": "click",
+        "params": {
+          "x": 1243,
+          "y": 898
+        },
+        "description": "Click screen(1243,898)"
+      },
+      {
+        "type": "browser",
+        "action": "click",
+        "params": {
+          "x": 1416,
+          "y": 20
+        },
+        "description": "Click screen(1416,20)"
+      },
+      {
+        "type": "browser",
+        "action": "keydown",
+        "params": {
+          "key": "Enter"
+        },
+        "description": "Press key: Enter"
+      },
+      {
+        "type": "browser",
+        "action": "click",
+        "params": {
+          "x": 1358,
+          "y": 30
+        },
+        "description": "Click screen(1358,30)"
+      },
+      {
+        "type": "browser",
+        "action": "click",
+        "params": {
+          "x": 1338,
+          "y": 1059
+        },
+        "description": "Click screen(1338,1059)"
+      },
+      {
+        "type": "browser",
+        "action": "click",
+        "params": {
+          "x": 559,
+          "y": 356
+        },
+        "description": "Click screen(559,356)"
+      }
+    ],
+    "recorded_steps": [
+      {
+        "id": "step_1778040900834_click",
+        "type": "click",
+        "timestamp": "2026-05-06T04:15:00.834Z",
+        "payload": {
+          "x": 1219,
+          "y": 1059,
+          "button": "left",
+          "selector": "screen(1219,1059)"
+        }
+      },
+      {
+        "id": "step_1778040902044_click",
+        "type": "click",
+        "timestamp": "2026-05-06T04:15:02.044Z",
+        "payload": {
+          "x": 1243,
+          "y": 898,
+          "button": "left",
+          "selector": "screen(1243,898)"
+        }
+      },
+      {
+        "id": "step_1778040903406_click",
+        "type": "click",
+        "timestamp": "2026-05-06T04:15:03.406Z",
+        "payload": {
+          "x": 1416,
+          "y": 20,
+          "button": "left",
+          "selector": "screen(1416,20)"
+        }
+      },
+      {
+        "id": "step_1778040908237_key",
+        "type": "keydown",
+        "timestamp": "2026-05-06T04:15:08.237Z",
+        "payload": {
+          "key": "Enter"
+        }
+      },
+      {
+        "id": "step_1778040917691_click",
+        "type": "click",
+        "timestamp": "2026-05-06T04:15:17.691Z",
+        "payload": {
+          "x": 1358,
+          "y": 30,
+          "button": "left",
+          "selector": "screen(1358,30)"
+        }
+      },
+      {
+        "id": "step_1778040920454_click",
+        "type": "click",
+        "timestamp": "2026-05-06T04:15:20.454Z",
+        "payload": {
+          "x": 1338,
+          "y": 1059,
+          "button": "left",
+          "selector": "screen(1338,1059)"
+        }
+      },
+      {
+        "id": "step_1778040922749_click",
+        "type": "click",
+        "timestamp": "2026-05-06T04:15:22.749Z",
+        "payload": {
+          "x": 559,
+          "y": 356,
+          "button": "left",
+          "selector": "screen(559,356)"
+        }
+      }
+    ],
+    "updated_at": "2026-05-06T04:15:25.867442"
+  },
+  "c2f899a8-4435-49c5-aa8c-2fdc2e2b27f7": {
+    "task": "Demo: Search Google",
+    "shortcut_key": null,
+    "status": "error",
+    "created_at": "2026-05-06T04:20:00.640402",
+    "steps": [
+      {
+        "type": "browser",
+        "action": "open_url",
+        "params": {
+          "url": "https://www.google.com"
+        },
+        "description": "Open Google"
+      },
+      {
+        "type": "browser",
+        "action": "click",
+        "params": {
+          "selector": "textarea[name='q']"
+        },
+        "description": "Click search box"
+      },
+      {
+        "type": "browser",
+        "action": "type",
+        "params": {
+          "selector": "textarea[name='q']",
+          "text": "AutoRift automation"
+        },
+        "description": "Type search query"
+      },
+      {
+        "type": "browser",
+        "action": "keydown",
+        "params": {
+          "key": "Enter"
+        },
+        "description": "Press Enter to search"
+      }
+    ],
+    "recorded_steps": [],
+    "updated_at": "2026-05-06T04:20:01.417914"
+  },
+  "befd4621-1f9b-4c87-9c06-8f74c0992320": {
+    "task": "Demo: Search Google",
+    "shortcut_key": null,
+    "status": "error",
+    "created_at": "2026-05-06T04:20:03.310997",
+    "steps": [
+      {
+        "type": "browser",
+        "action": "open_url",
+        "params": {
+          "url": "https://www.google.com"
+        },
+        "description": "Open Google"
+      },
+      {
+        "type": "browser",
+        "action": "click",
+        "params": {
+          "selector": "textarea[name='q']"
+        },
+        "description": "Click search box"
+      },
+      {
+        "type": "browser",
+        "action": "type",
+        "params": {
+          "selector": "textarea[name='q']",
+          "text": "AutoRift automation"
+        },
+        "description": "Type search query"
+      },
+      {
+        "type": "browser",
+        "action": "keydown",
+        "params": {
+          "key": "Enter"
+        },
+        "description": "Press Enter to search"
+      }
+    ],
+    "recorded_steps": [],
+    "updated_at": "2026-05-06T04:20:03.749258"
+  },
+  "1c433e21-7f28-4c52-bdff-4978d5d867f6": {
+    "task": "Demo: Search Google",
+    "shortcut_key": null,
+    "status": "error",
+    "created_at": "2026-05-06T04:20:04.436630",
+    "steps": [
+      {
+        "type": "browser",
+        "action": "open_url",
+        "params": {
+          "url": "https://www.google.com"
+        },
+        "description": "Open Google"
+      },
+      {
+        "type": "browser",
+        "action": "click",
+        "params": {
+          "selector": "textarea[name='q']"
+        },
+        "description": "Click search box"
+      },
+      {
+        "type": "browser",
+        "action": "type",
+        "params": {
+          "selector": "textarea[name='q']",
+          "text": "AutoRift automation"
+        },
+        "description": "Type search query"
+      },
+      {
+        "type": "browser",
+        "action": "keydown",
+        "params": {
+          "key": "Enter"
+        },
+        "description": "Press Enter to search"
+      }
+    ],
+    "recorded_steps": [],
+    "updated_at": "2026-05-06T04:20:04.833372"
+  },
+  "21bb6342-ee25-4a05-842e-e5caf3acbfba": {
+    "task": "Demo: Search Google",
+    "shortcut_key": null,
+    "status": "error",
+    "created_at": "2026-05-06T04:24:42.672860",
+    "steps": [
+      {
+        "type": "browser",
+        "action": "open_url",
+        "params": {
+          "url": "https://www.google.com"
+        },
+        "description": "Open Google"
+      },
+      {
+        "type": "browser",
+        "action": "click",
+        "params": {
+          "selector": "textarea[name='q']"
+        },
+        "description": "Click search box"
+      },
+      {
+        "type": "browser",
+        "action": "type",
+        "params": {
+          "selector": "textarea[name='q']",
+          "text": "AutoRift automation"
+        },
+        "description": "Type search query"
+      },
+      {
+        "type": "browser",
+        "action": "keydown",
+        "params": {
+          "key": "Enter"
+        },
+        "description": "Press Enter to search"
+      }
+    ],
+    "recorded_steps": [],
+    "updated_at": "2026-05-06T04:24:43.597973"
+  },
+  "d1c91f13-da78-4d5a-855a-a08b7fe9be2c": {
+    "task": "Demo: Search Google",
+    "shortcut_key": null,
+    "status": "error",
+    "created_at": "2026-05-06T04:24:44.791061",
+    "steps": [
+      {
+        "type": "browser",
+        "action": "open_url",
+        "params": {
+          "url": "https://www.google.com"
+        },
+        "description": "Open Google"
+      },
+      {
+        "type": "browser",
+        "action": "click",
+        "params": {
+          "selector": "textarea[name='q']"
+        },
+        "description": "Click search box"
+      },
+      {
+        "type": "browser",
+        "action": "type",
+        "params": {
+          "selector": "textarea[name='q']",
+          "text": "AutoRift automation"
+        },
+        "description": "Type search query"
+      },
+      {
+        "type": "browser",
+        "action": "keydown",
+        "params": {
+          "key": "Enter"
+        },
+        "description": "Press Enter to search"
+      }
+    ],
+    "recorded_steps": [],
+    "updated_at": "2026-05-06T04:24:45.171356"
+  },
+  "72c0dbb0-54d4-4fbc-b136-3e259b614f0e": {
+    "task": "Demo: Search Google",
+    "shortcut_key": null,
+    "status": "error",
+    "created_at": "2026-05-06T04:27:41.229579",
+    "steps": [
+      {
+        "type": "browser",
+        "action": "open_url",
+        "params": {
+          "url": "https://www.google.com"
+        },
+        "description": "Open Google"
+      },
+      {
+        "type": "browser",
+        "action": "click",
+        "params": {
+          "selector": "textarea[name='q']"
+        },
+        "description": "Click search box"
+      },
+      {
+        "type": "browser",
+        "action": "type",
+        "params": {
+          "selector": "textarea[name='q']",
+          "text": "AutoRift automation"
+        },
+        "description": "Type search query"
+      },
+      {
+        "type": "browser",
+        "action": "keydown",
+        "params": {
+          "key": "Enter"
+        },
+        "description": "Press Enter to search"
+      }
+    ],
+    "recorded_steps": [],
+    "updated_at": "2026-05-06T04:27:42.099723"
+  },
+  "f74e2f38-83bf-44f4-a045-8c8ad6636fb6": {
+    "task": "Click on screen(1482,289), then Click on screen(1808,168), then Click on screen(1428,25), then Press Enter, then Click on screen(1373,34), then Click on screen(1367,32), then Click on screen(1351,1060), then Click on screen(535,336)",
+    "shortcut_key": null,
+    "status": "error",
+    "created_at": "2026-05-06T04:32:29.020194",
+    "steps": [
+      {
+        "type": "browser",
+        "action": "click",
+        "params": {
+          "x": 1482,
+          "y": 289
+        },
+        "description": "Click screen(1482,289)"
+      },
+      {
+        "type": "browser",
+        "action": "click",
+        "params": {
+          "x": 1808,
+          "y": 168
+        },
+        "description": "Click screen(1808,168)"
+      },
+      {
+        "type": "browser",
+        "action": "click",
+        "params": {
+          "x": 1428,
+          "y": 25
+        },
+        "description": "Click screen(1428,25)"
+      },
+      {
+        "type": "browser",
+        "action": "keydown",
+        "params": {
+          "key": "Enter"
+        },
+        "description": "Press key: Enter"
+      },
+      {
+        "type": "browser",
+        "action": "click",
+        "params": {
+          "x": 1373,
+          "y": 34
+        },
+        "description": "Click screen(1373,34)"
+      },
+      {
+        "type": "browser",
+        "action": "click",
+        "params": {
+          "x": 1367,
+          "y": 32
+        },
+        "description": "Click screen(1367,32)"
+      },
+      {
+        "type": "browser",
+        "action": "click",
+        "params": {
+          "x": 1351,
+          "y": 1060
+        },
+        "description": "Click screen(1351,1060)"
+      },
+      {
+        "type": "browser",
+        "action": "click",
+        "params": {
+          "x": 535,
+          "y": 336
+        },
+        "description": "Click screen(535,336)"
+      }
+    ],
+    "recorded_steps": [
+      {
+        "id": "step_1778041936547_click",
+        "type": "click",
+        "timestamp": "2026-05-06T04:32:16.547Z",
+        "payload": {
+          "x": 1482,
+          "y": 289,
+          "button": "left",
+          "selector": "screen(1482,289)"
+        }
+      },
+      {
+        "id": "step_1778041937846_click",
+        "type": "click",
+        "timestamp": "2026-05-06T04:32:17.846Z",
+        "payload": {
+          "x": 1808,
+          "y": 168,
+          "button": "left",
+          "selector": "screen(1808,168)"
+        }
+      },
+      {
+        "id": "step_1778041939330_click",
+        "type": "click",
+        "timestamp": "2026-05-06T04:32:19.330Z",
+        "payload": {
+          "x": 1428,
+          "y": 25,
+          "button": "left",
+          "selector": "screen(1428,25)"
+        }
+      },
+      {
+        "id": "step_1778041940136_key",
+        "type": "keydown",
+        "timestamp": "2026-05-06T04:32:20.136Z",
+        "payload": {
+          "key": "Enter"
+        }
+      },
+      {
+        "id": "step_1778041942307_click",
+        "type": "click",
+        "timestamp": "2026-05-06T04:32:22.307Z",
+        "payload": {
+          "x": 1373,
+          "y": 34,
+          "button": "left",
+          "selector": "screen(1373,34)"
+        }
+      },
+      {
+        "id": "step_1778041943003_click",
+        "type": "click",
+        "timestamp": "2026-05-06T04:32:23.003Z",
+        "payload": {
+          "x": 1367,
+          "y": 32,
+          "button": "left",
+          "selector": "screen(1367,32)"
+        }
+      },
+      {
+        "id": "step_1778041944684_click",
+        "type": "click",
+        "timestamp": "2026-05-06T04:32:24.684Z",
+        "payload": {
+          "x": 1351,
+          "y": 1060,
+          "button": "left",
+          "selector": "screen(1351,1060)"
+        }
+      },
+      {
+        "id": "step_1778041946544_click",
+        "type": "click",
+        "timestamp": "2026-05-06T04:32:26.545Z",
+        "payload": {
+          "x": 535,
+          "y": 336,
+          "button": "left",
+          "selector": "screen(535,336)"
+        }
+      }
+    ],
+    "updated_at": "2026-05-06T04:32:29.384601"
+  },
+  "528feb7d-60e9-483d-a401-050900bcedff": {
+    "task": "Click on screen(1248,1068), then Click on screen(1230,937), then Click on screen(1430,14), then Press Enter, then Click on screen(1359,30), then Click on screen(1354,1063), then Click on screen(544,356)",
+    "shortcut_key": null,
+    "status": "error",
+    "created_at": "2026-05-06T04:34:20.038604",
+    "steps": [
+      {
+        "type": "browser",
+        "action": "click",
+        "params": {
+          "x": 1248,
+          "y": 1068
+        },
+        "description": "Click screen(1248,1068)"
+      },
+      {
+        "type": "browser",
+        "action": "click",
+        "params": {
+          "x": 1230,
+          "y": 937
+        },
+        "description": "Click screen(1230,937)"
+      },
+      {
+        "type": "browser",
+        "action": "click",
+        "params": {
+          "x": 1430,
+          "y": 14
+        },
+        "description": "Click screen(1430,14)"
+      },
+      {
+        "type": "browser",
+        "action": "keydown",
+        "params": {
+          "key": "Enter"
+        },
+        "description": "Press key: Enter"
+      },
+      {
+        "type": "browser",
+        "action": "click",
+        "params": {
+          "x": 1359,
+          "y": 30
+        },
+        "description": "Click screen(1359,30)"
+      },
+      {
+        "type": "browser",
+        "action": "click",
+        "params": {
+          "x": 1354,
+          "y": 1063
+        },
+        "description": "Click screen(1354,1063)"
+      },
+      {
+        "type": "browser",
+        "action": "click",
+        "params": {
+          "x": 544,
+          "y": 356
+        },
+        "description": "Click screen(544,356)"
+      }
+    ],
+    "recorded_steps": [
+      {
+        "id": "step_1778042048127_click",
+        "type": "click",
+        "timestamp": "2026-05-06T04:34:08.127Z",
+        "payload": {
+          "x": 1248,
+          "y": 1068,
+          "button": "left",
+          "selector": "screen(1248,1068)"
+        }
+      },
+      {
+        "id": "step_1778042049024_click",
+        "type": "click",
+        "timestamp": "2026-05-06T04:34:09.024Z",
+        "payload": {
+          "x": 1230,
+          "y": 937,
+          "button": "left",
+          "selector": "screen(1230,937)"
+        }
+      },
+      {
+        "id": "step_1778042050335_click",
+        "type": "click",
+        "timestamp": "2026-05-06T04:34:10.335Z",
+        "payload": {
+          "x": 1430,
+          "y": 14,
+          "button": "left",
+          "selector": "screen(1430,14)"
+        }
+      },
+      {
+        "id": "step_1778042052362_key",
+        "type": "keydown",
+        "timestamp": "2026-05-06T04:34:12.362Z",
+        "payload": {
+          "key": "Enter"
+        }
+      },
+      {
+        "id": "step_1778042054416_click",
+        "type": "click",
+        "timestamp": "2026-05-06T04:34:14.416Z",
+        "payload": {
+          "x": 1359,
+          "y": 30,
+          "button": "left",
+          "selector": "screen(1359,30)"
+        }
+      },
+      {
+        "id": "step_1778042056599_click",
+        "type": "click",
+        "timestamp": "2026-05-06T04:34:16.599Z",
+        "payload": {
+          "x": 1354,
+          "y": 1063,
+          "button": "left",
+          "selector": "screen(1354,1063)"
+        }
+      },
+      {
+        "id": "step_1778042058108_click",
+        "type": "click",
+        "timestamp": "2026-05-06T04:34:18.108Z",
+        "payload": {
+          "x": 544,
+          "y": 356,
+          "button": "left",
+          "selector": "screen(544,356)"
+        }
+      }
+    ],
+    "updated_at": "2026-05-06T04:34:20.814311"
+  },
+  "44bbb552-f25a-456c-a2c6-343a5c7fe05c": {
+    "task": "Click on screen(1614,25), then Click on screen(1765,31), then Click on screen(1407,22), then Click on screen(1355,1062), then Click on screen(466,353)",
+    "shortcut_key": null,
+    "status": "error",
+    "created_at": "2026-05-06T04:38:30.793903",
+    "steps": [
+      {
+        "type": "browser",
+        "action": "click",
+        "params": {
+          "x": 1614,
+          "y": 25
+        },
+        "description": "Click screen(1614,25)"
+      },
+      {
+        "type": "browser",
+        "action": "click",
+        "params": {
+          "x": 1765,
+          "y": 31
+        },
+        "description": "Click screen(1765,31)"
+      },
+      {
+        "type": "browser",
+        "action": "click",
+        "params": {
+          "x": 1407,
+          "y": 22
+        },
+        "description": "Click screen(1407,22)"
+      },
+      {
+        "type": "browser",
+        "action": "click",
+        "params": {
+          "x": 1355,
+          "y": 1062
+        },
+        "description": "Click screen(1355,1062)"
+      },
+      {
+        "type": "browser",
+        "action": "click",
+        "params": {
+          "x": 466,
+          "y": 353
+        },
+        "description": "Click screen(466,353)"
+      }
+    ],
+    "recorded_steps": [
+      {
+        "id": "step_1778042302125_click",
+        "type": "click",
+        "timestamp": "2026-05-06T04:38:22.125Z",
+        "payload": {
+          "x": 1614,
+          "y": 25,
+          "button": "left",
+          "selector": "screen(1614,25)"
+        }
+      },
+      {
+        "id": "step_1778042303299_click",
+        "type": "click",
+        "timestamp": "2026-05-06T04:38:23.299Z",
+        "payload": {
+          "x": 1765,
+          "y": 31,
+          "button": "left",
+          "selector": "screen(1765,31)"
+        }
+      },
+      {
+        "id": "step_1778042305387_click",
+        "type": "click",
+        "timestamp": "2026-05-06T04:38:25.387Z",
+        "payload": {
+          "x": 1407,
+          "y": 22,
+          "button": "left",
+          "selector": "screen(1407,22)"
+        }
+      },
+      {
+        "id": "step_1778042307000_click",
+        "type": "click",
+        "timestamp": "2026-05-06T04:38:27.000Z",
+        "payload": {
+          "x": 1355,
+          "y": 1062,
+          "button": "left",
+          "selector": "screen(1355,1062)"
+        }
+      },
+      {
+        "id": "step_1778042308308_click",
+        "type": "click",
+        "timestamp": "2026-05-06T04:38:28.308Z",
+        "payload": {
+          "x": 466,
+          "y": 353,
+          "button": "left",
+          "selector": "screen(466,353)"
+        }
+      }
+    ],
+    "updated_at": "2026-05-06T04:38:35.882326"
+  },
+  "7a02e788-93c3-4950-8e80-b600793dd220": {
+    "task": "Demo: Search Google",
+    "shortcut_key": null,
+    "status": "error",
+    "created_at": "2026-05-06T04:41:34.816182",
+    "steps": [
+      {
+        "type": "browser",
+        "action": "open_url",
+        "params": {
+          "url": "https://www.google.com"
+        },
+        "description": "Open Google"
+      },
+      {
+        "type": "browser",
+        "action": "click",
+        "params": {
+          "selector": "textarea[name='q']"
+        },
+        "description": "Click search box"
+      },
+      {
+        "type": "browser",
+        "action": "type",
+        "params": {
+          "selector": "textarea[name='q']",
+          "text": "AutoRift automation"
+        },
+        "description": "Type search query"
+      },
+      {
+        "type": "browser",
+        "action": "keydown",
+        "params": {
+          "key": "Enter"
+        },
+        "description": "Press Enter to search"
+      }
+    ],
+    "recorded_steps": [],
+    "updated_at": "2026-05-06T04:41:39.535902"
+  },
+  "4959869f-5f01-4c90-a29d-ab3e24f95d9a": {
+    "task": "Click on screen(1247,1044), then Click on screen(1264,957), then Click on screen(1300,0), then Click on screen(1263,88), then Press Enter, then Click on screen(1367,35), then Press Tab, then Click on screen(562,356)",
+    "shortcut_key": null,
+    "status": "error",
+    "created_at": "2026-05-06T04:41:57.889616",
+    "steps": [
+      {
+        "type": "browser",
+        "action": "click",
+        "params": {
+          "x": 1247,
+          "y": 1044
+        },
+        "description": "Click screen(1247,1044)"
+      },
+      {
+        "type": "browser",
+        "action": "click",
+        "params": {
+          "x": 1264,
+          "y": 957
+        },
+        "description": "Click screen(1264,957)"
+      },
+      {
+        "type": "browser",
+        "action": "click",
+        "params": {
+          "x": 1300,
+          "y": 0
+        },
+        "description": "Click screen(1300,0)"
+      },
+      {
+        "type": "browser",
+        "action": "click",
+        "params": {
+          "x": 1263,
+          "y": 88
+        },
+        "description": "Click screen(1263,88)"
+      },
+      {
+        "type": "browser",
+        "action": "keydown",
+        "params": {
+          "key": "Enter"
+        },
+        "description": "Press key: Enter"
+      },
+      {
+        "type": "browser",
+        "action": "click",
+        "params": {
+          "x": 1367,
+          "y": 35
+        },
+        "description": "Click screen(1367,35)"
+      },
+      {
+        "type": "browser",
+        "action": "keydown",
+        "params": {
+          "key": "Tab"
+        },
+        "description": "Press key: Tab"
+      },
+      {
+        "type": "browser",
+        "action": "click",
+        "params": {
+          "x": 562,
+          "y": 356
+        },
+        "description": "Click screen(562,356)"
+      }
+    ],
+    "recorded_steps": [
+      {
+        "id": "step_1778042502703_click",
+        "type": "click",
+        "timestamp": "2026-05-06T04:41:42.703Z",
+        "payload": {
+          "x": 1247,
+          "y": 1044,
+          "button": "left",
+          "selector": "screen(1247,1044)"
+        }
+      },
+      {
+        "id": "step_1778042503976_click",
+        "type": "click",
+        "timestamp": "2026-05-06T04:41:43.976Z",
+        "payload": {
+          "x": 1264,
+          "y": 957,
+          "button": "left",
+          "selector": "screen(1264,957)"
+        }
+      },
+      {
+        "id": "step_1778042505475_click",
+        "type": "click",
+        "timestamp": "2026-05-06T04:41:45.475Z",
+        "payload": {
+          "x": 1300,
+          "y": 0,
+          "button": "left",
+          "selector": "screen(1300,0)"
+        }
+      },
+      {
+        "id": "step_1778042506705_click",
+        "type": "click",
+        "timestamp": "2026-05-06T04:41:46.705Z",
+        "payload": {
+          "x": 1263,
+          "y": 88,
+          "button": "left",
+          "selector": "screen(1263,88)"
+        }
+      },
+      {
+        "id": "step_1778042507793_key",
+        "type": "keydown",
+        "timestamp": "2026-05-06T04:41:47.793Z",
+        "payload": {
+          "key": "Enter"
+        }
+      },
+      {
+        "id": "step_1778042511356_click",
+        "type": "click",
+        "timestamp": "2026-05-06T04:41:51.356Z",
+        "payload": {
+          "x": 1367,
+          "y": 35,
+          "button": "left",
+          "selector": "screen(1367,35)"
+        }
+      },
+      {
+        "id": "step_1778042512660_key",
+        "type": "keydown",
+        "timestamp": "2026-05-06T04:41:52.660Z",
+        "payload": {
+          "key": "Tab"
+        }
+      },
+      {
+        "id": "step_1778042515531_click",
+        "type": "click",
+        "timestamp": "2026-05-06T04:41:55.531Z",
+        "payload": {
+          "x": 562,
+          "y": 356,
+          "button": "left",
+          "selector": "screen(562,356)"
+        }
+      }
+    ],
+    "updated_at": "2026-05-06T04:42:02.734965"
+  },
+  "a345a032-a6a3-4373-afef-fb293deaaca8": {
+    "task": "Demo: Search Google",
+    "shortcut_key": null,
+    "status": "error",
+    "created_at": "2026-05-06T04:43:13.574371",
+    "steps": [
+      {
+        "type": "browser",
+        "action": "open_url",
+        "params": {
+          "url": "https://www.google.com"
+        },
+        "description": "Open Google"
+      },
+      {
+        "type": "browser",
+        "action": "click",
+        "params": {
+          "selector": "textarea[name='q']"
+        },
+        "description": "Click search box"
+      },
+      {
+        "type": "browser",
+        "action": "type",
+        "params": {
+          "selector": "textarea[name='q']",
+          "text": "AutoRift automation"
+        },
+        "description": "Type search query"
+      },
+      {
+        "type": "browser",
+        "action": "keydown",
+        "params": {
+          "key": "Enter"
+        },
+        "description": "Press Enter to search"
+      }
+    ],
+    "recorded_steps": [],
+    "updated_at": "2026-05-06T04:43:19.099614"
+  },
+  "3d3c58b2-7e85-4229-bf86-7fdc32c27af3": {
+    "task": "Click on screen(1673,36), then Click on screen(1783,30), then Click on screen(1689,923), then Click on screen(1710,942)",
+    "shortcut_key": null,
+    "status": "error",
+    "created_at": "2026-05-06T05:05:44.002698",
+    "steps": [
+      {
+        "type": "browser",
+        "action": "click",
+        "params": {
+          "x": 1673,
+          "y": 36
+        },
+        "description": "Click screen(1673,36)"
+      },
+      {
+        "type": "browser",
+        "action": "click",
+        "params": {
+          "x": 1783,
+          "y": 30
+        },
+        "description": "Click screen(1783,30)"
+      },
+      {
+        "type": "browser",
+        "action": "click",
+        "params": {
+          "x": 1689,
+          "y": 923
+        },
+        "description": "Click screen(1689,923)"
+      },
+      {
+        "type": "browser",
+        "action": "click",
+        "params": {
+          "x": 1710,
+          "y": 942
+        },
+        "description": "Click screen(1710,942)"
+      }
+    ],
+    "recorded_steps": [
+      {
+        "id": "step_1778043914730_click",
+        "type": "click",
+        "timestamp": "2026-05-06T05:05:14.730Z",
+        "payload": {
+          "x": 1673,
+          "y": 36,
+          "button": "left",
+          "selector": "screen(1673,36)"
+        }
+      },
+      {
+        "id": "step_1778043921111_click",
+        "type": "click",
+        "timestamp": "2026-05-06T05:05:21.111Z",
+        "payload": {
+          "x": 1783,
+          "y": 30,
+          "button": "left",
+          "selector": "screen(1783,30)"
+        }
+      },
+      {
+        "id": "step_1778043935514_click",
+        "type": "click",
+        "timestamp": "2026-05-06T05:05:35.514Z",
+        "payload": {
+          "x": 1689,
+          "y": 923,
+          "button": "left",
+          "selector": "screen(1689,923)"
+        }
+      },
+      {
+        "id": "step_1778043938896_click",
+        "type": "click",
+        "timestamp": "2026-05-06T05:05:38.896Z",
+        "payload": {
+          "x": 1710,
+          "y": 942,
+          "button": "left",
+          "selector": "screen(1710,942)"
+        }
+      }
+    ],
+    "updated_at": "2026-05-06T05:05:48.874180"
+  },
+  "9ea73707-1ef4-4647-bd41-d2e3a7515fa8": {
+    "task": "Click on screen(1673,36), then Click on screen(1783,30), then Click on screen(1689,923), then Click on screen(1710,942), then Click on screen(1231,770), then Click on screen(1100,751), then Click on screen(1642,863), then Click on screen(1555,0), then Click on screen(1555,0), then Click on screen(1737,33), then Click on screen(1366,242), then Click on screen(1296,384), then Click on screen(1204,443), then Click on screen(1632,893)",
+    "shortcut_key": null,
+    "status": "error",
+    "created_at": "2026-05-06T05:06:47.083423",
+    "steps": [
+      {
+        "type": "browser",
+        "action": "click",
+        "params": {
+          "x": 1673,
+          "y": 36
+        },
+        "description": "Click screen(1673,36)"
+      },
+      {
+        "type": "browser",
+        "action": "click",
+        "params": {
+          "x": 1783,
+          "y": 30
+        },
+        "description": "Click screen(1783,30)"
+      },
+      {
+        "type": "browser",
+        "action": "click",
+        "params": {
+          "x": 1689,
+          "y": 923
+        },
+        "description": "Click screen(1689,923)"
+      },
+      {
+        "type": "browser",
+        "action": "click",
+        "params": {
+          "x": 1710,
+          "y": 942
+        },
+        "description": "Click screen(1710,942)"
+      },
+      {
+        "type": "browser",
+        "action": "click",
+        "params": {
+          "x": 1231,
+          "y": 770
+        },
+        "description": "Click screen(1231,770)"
+      },
+      {
+        "type": "browser",
+        "action": "click",
+        "params": {
+          "x": 1100,
+          "y": 751
+        },
+        "description": "Click screen(1100,751)"
+      },
+      {
+        "type": "browser",
+        "action": "click",
+        "params": {
+          "x": 1642,
+          "y": 863
+        },
+        "description": "Click screen(1642,863)"
+      },
+      {
+        "type": "browser",
+        "action": "click",
+        "params": {
+          "x": 1555,
+          "y": 0
+        },
+        "description": "Click screen(1555,0)"
+      },
+      {
+        "type": "browser",
+        "action": "click",
+        "params": {
+          "x": 1555,
+          "y": 0
+        },
+        "description": "Click screen(1555,0)"
+      },
+      {
+        "type": "browser",
+        "action": "click",
+        "params": {
+          "x": 1737,
+          "y": 33
+        },
+        "description": "Click screen(1737,33)"
+      },
+      {
+        "type": "browser",
+        "action": "click",
+        "params": {
+          "x": 1366,
+          "y": 242
+        },
+        "description": "Click screen(1366,242)"
+      },
+      {
+        "type": "browser",
+        "action": "click",
+        "params": {
+          "x": 1296,
+          "y": 384
+        },
+        "description": "Click screen(1296,384)"
+      },
+      {
+        "type": "browser",
+        "action": "click",
+        "params": {
+          "x": 1204,
+          "y": 443
+        },
+        "description": "Click screen(1204,443)"
+      },
+      {
+        "type": "browser",
+        "action": "click",
+        "params": {
+          "x": 1632,
+          "y": 893
+        },
+        "description": "Click screen(1632,893)"
+      }
+    ],
+    "recorded_steps": [
+      {
+        "id": "step_1778043914730_click",
+        "type": "click",
+        "timestamp": "2026-05-06T05:05:14.730Z",
+        "payload": {
+          "x": 1673,
+          "y": 36,
+          "button": "left",
+          "selector": "screen(1673,36)"
+        }
+      },
+      {
+        "id": "step_1778043921111_click",
+        "type": "click",
+        "timestamp": "2026-05-06T05:05:21.111Z",
+        "payload": {
+          "x": 1783,
+          "y": 30,
+          "button": "left",
+          "selector": "screen(1783,30)"
+        }
+      },
+      {
+        "id": "step_1778043935514_click",
+        "type": "click",
+        "timestamp": "2026-05-06T05:05:35.514Z",
+        "payload": {
+          "x": 1689,
+          "y": 923,
+          "button": "left",
+          "selector": "screen(1689,923)"
+        }
+      },
+      {
+        "id": "step_1778043938896_click",
+        "type": "click",
+        "timestamp": "2026-05-06T05:05:38.896Z",
+        "payload": {
+          "x": 1710,
+          "y": 942,
+          "button": "left",
+          "selector": "screen(1710,942)"
+        }
+      },
+      {
+        "id": "step_1778043953922_click",
+        "type": "click",
+        "timestamp": "2026-05-06T05:05:53.922Z",
+        "payload": {
+          "x": 1231,
+          "y": 770,
+          "button": "left",
+          "selector": "screen(1231,770)"
+        }
+      },
+      {
+        "id": "step_1778043955069_click",
+        "type": "click",
+        "timestamp": "2026-05-06T05:05:55.069Z",
+        "payload": {
+          "x": 1100,
+          "y": 751,
+          "button": "left",
+          "selector": "screen(1100,751)"
+        }
+      },
+      {
+        "id": "step_1778043956354_click",
+        "type": "click",
+        "timestamp": "2026-05-06T05:05:56.355Z",
+        "payload": {
+          "x": 1642,
+          "y": 863,
+          "button": "left",
+          "selector": "screen(1642,863)"
+        }
+      },
+      {
+        "id": "step_1778043960476_click",
+        "type": "click",
+        "timestamp": "2026-05-06T05:06:00.476Z",
+        "payload": {
+          "x": 1555,
+          "y": 0,
+          "button": "left",
+          "selector": "screen(1555,0)"
+        }
+      },
+      {
+        "id": "step_1778043960746_click",
+        "type": "click",
+        "timestamp": "2026-05-06T05:06:00.746Z",
+        "payload": {
+          "x": 1555,
+          "y": 0,
+          "button": "left",
+          "selector": "screen(1555,0)"
+        }
+      },
+      {
+        "id": "step_1778043963426_click",
+        "type": "click",
+        "timestamp": "2026-05-06T05:06:03.426Z",
+        "payload": {
+          "x": 1737,
+          "y": 33,
+          "button": "left",
+          "selector": "screen(1737,33)"
+        }
+      },
+      {
+        "id": "step_1778043965139_click",
+        "type": "click",
+        "timestamp": "2026-05-06T05:06:05.139Z",
+        "payload": {
+          "x": 1366,
+          "y": 242,
+          "button": "left",
+          "selector": "screen(1366,242)"
+        }
+      },
+      {
+        "id": "step_1778043966248_click",
+        "type": "click",
+        "timestamp": "2026-05-06T05:06:06.248Z",
+        "payload": {
+          "x": 1296,
+          "y": 384,
+          "button": "left",
+          "selector": "screen(1296,384)"
+        }
+      },
+      {
+        "id": "step_1778043968493_click",
+        "type": "click",
+        "timestamp": "2026-05-06T05:06:08.493Z",
+        "payload": {
+          "x": 1204,
+          "y": 443,
+          "button": "left",
+          "selector": "screen(1204,443)"
+        }
+      },
+      {
+        "id": "step_1778043970521_click",
+        "type": "click",
+        "timestamp": "2026-05-06T05:06:10.521Z",
+        "payload": {
+          "x": 1632,
+          "y": 893,
+          "button": "left",
+          "selector": "screen(1632,893)"
+        }
+      }
+    ],
+    "updated_at": "2026-05-06T05:06:51.470199"
+  },
+  "8c0b2686-a713-44b2-8511-74e1dadee04a": {
+    "task": "Click on screen(1673,36), then Click on screen(1783,30), then Click on screen(1689,923), then Click on screen(1710,942), then Click on screen(1231,770), then Click on screen(1100,751), then Click on screen(1642,863), then Click on screen(1555,0), then Click on screen(1555,0), then Click on screen(1737,33), then Click on screen(1366,242), then Click on screen(1296,384), then Click on screen(1204,443), then Click on screen(1632,893)",
+    "shortcut_key": null,
+    "status": "error",
+    "created_at": "2026-05-06T05:08:32.045051",
+    "steps": [
+      {
+        "type": "browser",
+        "action": "click",
+        "params": {
+          "x": 1673,
+          "y": 36
+        },
+        "description": "Click screen(1673,36)"
+      },
+      {
+        "type": "browser",
+        "action": "click",
+        "params": {
+          "x": 1783,
+          "y": 30
+        },
+        "description": "Click screen(1783,30)"
+      },
+      {
+        "type": "browser",
+        "action": "click",
+        "params": {
+          "x": 1689,
+          "y": 923
+        },
+        "description": "Click screen(1689,923)"
+      },
+      {
+        "type": "browser",
+        "action": "click",
+        "params": {
+          "x": 1710,
+          "y": 942
+        },
+        "description": "Click screen(1710,942)"
+      },
+      {
+        "type": "browser",
+        "action": "click",
+        "params": {
+          "x": 1231,
+          "y": 770
+        },
+        "description": "Click screen(1231,770)"
+      },
+      {
+        "type": "browser",
+        "action": "click",
+        "params": {
+          "x": 1100,
+          "y": 751
+        },
+        "description": "Click screen(1100,751)"
+      },
+      {
+        "type": "browser",
+        "action": "click",
+        "params": {
+          "x": 1642,
+          "y": 863
+        },
+        "description": "Click screen(1642,863)"
+      },
+      {
+        "type": "browser",
+        "action": "click",
+        "params": {
+          "x": 1555,
+          "y": 0
+        },
+        "description": "Click screen(1555,0)"
+      },
+      {
+        "type": "browser",
+        "action": "click",
+        "params": {
+          "x": 1555,
+          "y": 0
+        },
+        "description": "Click screen(1555,0)"
+      },
+      {
+        "type": "browser",
+        "action": "click",
+        "params": {
+          "x": 1737,
+          "y": 33
+        },
+        "description": "Click screen(1737,33)"
+      },
+      {
+        "type": "browser",
+        "action": "click",
+        "params": {
+          "x": 1366,
+          "y": 242
+        },
+        "description": "Click screen(1366,242)"
+      },
+      {
+        "type": "browser",
+        "action": "click",
+        "params": {
+          "x": 1296,
+          "y": 384
+        },
+        "description": "Click screen(1296,384)"
+      },
+      {
+        "type": "browser",
+        "action": "click",
+        "params": {
+          "x": 1204,
+          "y": 443
+        },
+        "description": "Click screen(1204,443)"
+      },
+      {
+        "type": "browser",
+        "action": "click",
+        "params": {
+          "x": 1632,
+          "y": 893
+        },
+        "description": "Click screen(1632,893)"
+      }
+    ],
+    "recorded_steps": [
+      {
+        "id": "step_1778043914730_click",
+        "type": "click",
+        "timestamp": "2026-05-06T05:05:14.730Z",
+        "payload": {
+          "x": 1673,
+          "y": 36,
+          "button": "left",
+          "selector": "screen(1673,36)"
+        }
+      },
+      {
+        "id": "step_1778043921111_click",
+        "type": "click",
+        "timestamp": "2026-05-06T05:05:21.111Z",
+        "payload": {
+          "x": 1783,
+          "y": 30,
+          "button": "left",
+          "selector": "screen(1783,30)"
+        }
+      },
+      {
+        "id": "step_1778043935514_click",
+        "type": "click",
+        "timestamp": "2026-05-06T05:05:35.514Z",
+        "payload": {
+          "x": 1689,
+          "y": 923,
+          "button": "left",
+          "selector": "screen(1689,923)"
+        }
+      },
+      {
+        "id": "step_1778043938896_click",
+        "type": "click",
+        "timestamp": "2026-05-06T05:05:38.896Z",
+        "payload": {
+          "x": 1710,
+          "y": 942,
+          "button": "left",
+          "selector": "screen(1710,942)"
+        }
+      },
+      {
+        "id": "step_1778043953922_click",
+        "type": "click",
+        "timestamp": "2026-05-06T05:05:53.922Z",
+        "payload": {
+          "x": 1231,
+          "y": 770,
+          "button": "left",
+          "selector": "screen(1231,770)"
+        }
+      },
+      {
+        "id": "step_1778043955069_click",
+        "type": "click",
+        "timestamp": "2026-05-06T05:05:55.069Z",
+        "payload": {
+          "x": 1100,
+          "y": 751,
+          "button": "left",
+          "selector": "screen(1100,751)"
+        }
+      },
+      {
+        "id": "step_1778043956354_click",
+        "type": "click",
+        "timestamp": "2026-05-06T05:05:56.355Z",
+        "payload": {
+          "x": 1642,
+          "y": 863,
+          "button": "left",
+          "selector": "screen(1642,863)"
+        }
+      },
+      {
+        "id": "step_1778043960476_click",
+        "type": "click",
+        "timestamp": "2026-05-06T05:06:00.476Z",
+        "payload": {
+          "x": 1555,
+          "y": 0,
+          "button": "left",
+          "selector": "screen(1555,0)"
+        }
+      },
+      {
+        "id": "step_1778043960746_click",
+        "type": "click",
+        "timestamp": "2026-05-06T05:06:00.746Z",
+        "payload": {
+          "x": 1555,
+          "y": 0,
+          "button": "left",
+          "selector": "screen(1555,0)"
+        }
+      },
+      {
+        "id": "step_1778043963426_click",
+        "type": "click",
+        "timestamp": "2026-05-06T05:06:03.426Z",
+        "payload": {
+          "x": 1737,
+          "y": 33,
+          "button": "left",
+          "selector": "screen(1737,33)"
+        }
+      },
+      {
+        "id": "step_1778043965139_click",
+        "type": "click",
+        "timestamp": "2026-05-06T05:06:05.139Z",
+        "payload": {
+          "x": 1366,
+          "y": 242,
+          "button": "left",
+          "selector": "screen(1366,242)"
+        }
+      },
+      {
+        "id": "step_1778043966248_click",
+        "type": "click",
+        "timestamp": "2026-05-06T05:06:06.248Z",
+        "payload": {
+          "x": 1296,
+          "y": 384,
+          "button": "left",
+          "selector": "screen(1296,384)"
+        }
+      },
+      {
+        "id": "step_1778043968493_click",
+        "type": "click",
+        "timestamp": "2026-05-06T05:06:08.493Z",
+        "payload": {
+          "x": 1204,
+          "y": 443,
+          "button": "left",
+          "selector": "screen(1204,443)"
+        }
+      },
+      {
+        "id": "step_1778043970521_click",
+        "type": "click",
+        "timestamp": "2026-05-06T05:06:10.521Z",
+        "payload": {
+          "x": 1632,
+          "y": 893,
+          "button": "left",
+          "selector": "screen(1632,893)"
+        }
+      }
+    ],
+    "updated_at": "2026-05-06T05:08:38.438855"
+  },
+  "2b5537a4-c6e8-4439-a510-460bcfb467a9": {
+    "task": "Click on screen(937,500), then Click on screen(937,500), then Click on screen(937,500), then Click on screen(937,500), then Click on screen(937,500), then Click on screen(937,500), then Click on screen(937,500), then Click on screen(937,500), then Click on screen(937,500), then Press Enter, then Press Enter, then Press Enter, then Press Enter, then Press Enter, then Press Enter, then Press Enter, then Press Enter, then Press Enter, then Press Enter, then Press Enter, then Press Enter, then Press Enter, then Press Enter, then Press Enter, then Press Enter, then Press Backspace, then Press Backspace, then Press Backspace, then Press Backspace, then Press Backspace, then Press Tab, then Press Tab, then Press Tab, then Press Tab, then Press Tab, then Press Tab, then Press Tab, then Press Tab, then Click on screen(451,326)",
+    "shortcut_key": null,
+    "status": "error",
+    "created_at": "2026-05-06T15:08:44.894530",
+    "steps": [
+      {
+        "type": "browser",
+        "action": "click",
+        "params": {
+          "x": 937,
+          "y": 500
+        },
+        "description": "Click screen(937,500)"
+      },
+      {
+        "type": "browser",
+        "action": "click",
+        "params": {
+          "x": 937,
+          "y": 500
+        },
+        "description": "Click screen(937,500)"
+      },
+      {
+        "type": "browser",
+        "action": "click",
+        "params": {
+          "x": 937,
+          "y": 500
+        },
+        "description": "Click screen(937,500)"
+      },
+      {
+        "type": "browser",
+        "action": "click",
+        "params": {
+          "x": 937,
+          "y": 500
+        },
+        "description": "Click screen(937,500)"
+      },
+      {
+        "type": "browser",
+        "action": "click",
+        "params": {
+          "x": 937,
+          "y": 500
+        },
+        "description": "Click screen(937,500)"
+      },
+      {
+        "type": "browser",
+        "action": "click",
+        "params": {
+          "x": 937,
+          "y": 500
+        },
+        "description": "Click screen(937,500)"
+      },
+      {
+        "type": "browser",
+        "action": "click",
+        "params": {
+          "x": 937,
+          "y": 500
+        },
+        "description": "Click screen(937,500)"
+      },
+      {
+        "type": "browser",
+        "action": "click",
+        "params": {
+          "x": 937,
+          "y": 500
+        },
+        "description": "Click screen(937,500)"
+      },
+      {
+        "type": "browser",
+        "action": "click",
+        "params": {
+          "x": 937,
+          "y": 500
+        },
+        "description": "Click screen(937,500)"
+      },
+      {
+        "type": "browser",
+        "action": "keydown",
+        "params": {
+          "key": "Enter"
+        },
+        "description": "Press key: Enter"
+      },
+      {
+        "type": "browser",
+        "action": "keydown",
+        "params": {
+          "key": "Enter"
+        },
+        "description": "Press key: Enter"
+      },
+      {
+        "type": "browser",
+        "action": "keydown",
+        "params": {
+          "key": "Enter"
+        },
+        "description": "Press key: Enter"
+      },
+      {
+        "type": "browser",
+        "action": "keydown",
+        "params": {
+          "key": "Enter"
+        },
+        "description": "Press key: Enter"
+      },
+      {
+        "type": "browser",
+        "action": "keydown",
+        "params": {
+          "key": "Enter"
+        },
+        "description": "Press key: Enter"
+      },
+      {
+        "type": "browser",
+        "action": "keydown",
+        "params": {
+          "key": "Enter"
+        },
+        "description": "Press key: Enter"
+      },
+      {
+        "type": "browser",
+        "action": "keydown",
+        "params": {
+          "key": "Enter"
+        },
+        "description": "Press key: Enter"
+      },
+      {
+        "type": "browser",
+        "action": "keydown",
+        "params": {
+          "key": "Enter"
+        },
+        "description": "Press key: Enter"
+      },
+      {
+        "type": "browser",
+        "action": "keydown",
+        "params": {
+          "key": "Enter"
+        },
+        "description": "Press key: Enter"
+      },
+      {
+        "type": "browser",
+        "action": "keydown",
+        "params": {
+          "key": "Enter"
+        },
+        "description": "Press key: Enter"
+      },
+      {
+        "type": "browser",
+        "action": "keydown",
+        "params": {
+          "key": "Enter"
+        },
+        "description": "Press key: Enter"
+      },
+      {
+        "type": "browser",
+        "action": "keydown",
+        "params": {
+          "key": "Enter"
+        },
+        "description": "Press key: Enter"
+      },
+      {
+        "type": "browser",
+        "action": "keydown",
+        "params": {
+          "key": "Enter"
+        },
+        "description": "Press key: Enter"
+      },
+      {
+        "type": "browser",
+        "action": "keydown",
+        "params": {
+          "key": "Enter"
+        },
+        "description": "Press key: Enter"
+      },
+      {
+        "type": "browser",
+        "action": "keydown",
+        "params": {
+          "key": "Enter"
+        },
+        "description": "Press key: Enter"
+      },
+      {
+        "type": "browser",
+        "action": "keydown",
+        "params": {
+          "key": "Enter"
+        },
+        "description": "Press key: Enter"
+      },
+      {
+        "type": "browser",
+        "action": "keydown",
+        "params": {
+          "key": "Backspace"
+        },
+        "description": "Press key: Backspace"
+      },
+      {
+        "type": "browser",
+        "action": "keydown",
+        "params": {
+          "key": "Backspace"
+        },
+        "description": "Press key: Backspace"
+      },
+      {
+        "type": "browser",
+        "action": "keydown",
+        "params": {
+          "key": "Backspace"
+        },
+        "description": "Press key: Backspace"
+      },
+      {
+        "type": "browser",
+        "action": "keydown",
+        "params": {
+          "key": "Backspace"
+        },
+        "description": "Press key: Backspace"
+      },
+      {
+        "type": "browser",
+        "action": "keydown",
+        "params": {
+          "key": "Backspace"
+        },
+        "description": "Press key: Backspace"
+      },
+      {
+        "type": "browser",
+        "action": "keydown",
+        "params": {
+          "key": "Tab"
+        },
+        "description": "Press key: Tab"
+      },
+      {
+        "type": "browser",
+        "action": "keydown",
+        "params": {
+          "key": "Tab"
+        },
+        "description": "Press key: Tab"
+      },
+      {
+        "type": "browser",
+        "action": "keydown",
+        "params": {
+          "key": "Tab"
+        },
+        "description": "Press key: Tab"
+      },
+      {
+        "type": "browser",
+        "action": "keydown",
+        "params": {
+          "key": "Tab"
+        },
+        "description": "Press key: Tab"
+      },
+      {
+        "type": "browser",
+        "action": "keydown",
+        "params": {
+          "key": "Tab"
+        },
+        "description": "Press key: Tab"
+      },
+      {
+        "type": "browser",
+        "action": "keydown",
+        "params": {
+          "key": "Tab"
+        },
+        "description": "Press key: Tab"
+      },
+      {
+        "type": "browser",
+        "action": "keydown",
+        "params": {
+          "key": "Tab"
+        },
+        "description": "Press key: Tab"
+      },
+      {
+        "type": "browser",
+        "action": "keydown",
+        "params": {
+          "key": "Tab"
+        },
+        "description": "Press key: Tab"
+      },
+      {
+        "type": "browser",
+        "action": "click",
+        "params": {
+          "x": 451,
+          "y": 326
+        },
+        "description": "Click screen(451,326)"
+      }
+    ],
+    "recorded_steps": [
+      {
+        "id": "step_1778080104577_click",
+        "type": "click",
+        "timestamp": "2026-05-06T15:08:24.577Z",
+        "payload": {
+          "x": 937,
+          "y": 500,
+          "button": "left",
+          "selector": "screen(937,500)"
+        }
+      },
+      {
+        "id": "step_1778080104713_click",
+        "type": "click",
+        "timestamp": "2026-05-06T15:08:24.713Z",
+        "payload": {
+          "x": 937,
+          "y": 500,
+          "button": "left",
+          "selector": "screen(937,500)"
+        }
+      },
+      {
+        "id": "step_1778080104952_click",
+        "type": "click",
+        "timestamp": "2026-05-06T15:08:24.952Z",
+        "payload": {
+          "x": 937,
+          "y": 500,
+          "button": "left",
+          "selector": "screen(937,500)"
+        }
+      },
+      {
+        "id": "step_1778080105104_click",
+        "type": "click",
+        "timestamp": "2026-05-06T15:08:25.104Z",
+        "payload": {
+          "x": 937,
+          "y": 500,
+          "button": "left",
+          "selector": "screen(937,500)"
+        }
+      },
+      {
+        "id": "step_1778080105264_click",
+        "type": "click",
+        "timestamp": "2026-05-06T15:08:25.264Z",
+        "payload": {
+          "x": 937,
+          "y": 500,
+          "button": "left",
+          "selector": "screen(937,500)"
+        }
+      },
+      {
+        "id": "step_1778080105422_click",
+        "type": "click",
+        "timestamp": "2026-05-06T15:08:25.422Z",
+        "payload": {
+          "x": 937,
+          "y": 500,
+          "button": "left",
+          "selector": "screen(937,500)"
+        }
+      },
+      {
+        "id": "step_1778080105562_click",
+        "type": "click",
+        "timestamp": "2026-05-06T15:08:25.562Z",
+        "payload": {
+          "x": 937,
+          "y": 500,
+          "button": "left",
+          "selector": "screen(937,500)"
+        }
+      },
+      {
+        "id": "step_1778080105705_click",
+        "type": "click",
+        "timestamp": "2026-05-06T15:08:25.705Z",
+        "payload": {
+          "x": 937,
+          "y": 500,
+          "button": "left",
+          "selector": "screen(937,500)"
+        }
+      },
+      {
+        "id": "step_1778080105912_click",
+        "type": "click",
+        "timestamp": "2026-05-06T15:08:25.912Z",
+        "payload": {
+          "x": 937,
+          "y": 500,
+          "button": "left",
+          "selector": "screen(937,500)"
+        }
+      },
+      {
+        "id": "step_1_1778080107362",
+        "type": "keydown",
+        "timestamp": "2026-05-06T15:08:27.362Z",
+        "payload": {
+          "key": "Enter"
+        }
+      },
+      {
+        "id": "step_1778080107361_key",
+        "type": "keydown",
+        "timestamp": "2026-05-06T15:08:27.361Z",
+        "payload": {
+          "key": "Enter"
+        }
+      },
+      {
+        "id": "step_2_1778080107513",
+        "type": "keydown",
+        "timestamp": "2026-05-06T15:08:27.513Z",
+        "payload": {
+          "key": "Enter"
+        }
+      },
+      {
+        "id": "step_1778080107511_key",
+        "type": "keydown",
+        "timestamp": "2026-05-06T15:08:27.511Z",
+        "payload": {
+          "key": "Enter"
+        }
+      },
+      {
+        "id": "step_3_1778080107680",
+        "type": "keydown",
+        "timestamp": "2026-05-06T15:08:27.680Z",
+        "payload": {
+          "key": "Enter"
+        }
+      },
+      {
+        "id": "step_1778080107679_key",
+        "type": "keydown",
+        "timestamp": "2026-05-06T15:08:27.679Z",
+        "payload": {
+          "key": "Enter"
+        }
+      },
+      {
+        "id": "step_4_1778080107849",
+        "type": "keydown",
+        "timestamp": "2026-05-06T15:08:27.849Z",
+        "payload": {
+          "key": "Enter"
+        }
+      },
+      {
+        "id": "step_1778080107849_key",
+        "type": "keydown",
+        "timestamp": "2026-05-06T15:08:27.849Z",
+        "payload": {
+          "key": "Enter"
+        }
+      },
+      {
+        "id": "step_5_1778080108013",
+        "type": "keydown",
+        "timestamp": "2026-05-06T15:08:28.013Z",
+        "payload": {
+          "key": "Enter"
+        }
+      },
+      {
+        "id": "step_1778080108011_key",
+        "type": "keydown",
+        "timestamp": "2026-05-06T15:08:28.011Z",
+        "payload": {
+          "key": "Enter"
+        }
+      },
+      {
+        "id": "step_6_1778080108187",
+        "type": "keydown",
+        "timestamp": "2026-05-06T15:08:28.187Z",
+        "payload": {
+          "key": "Enter"
+        }
+      },
+      {
+        "id": "step_1778080108187_key",
+        "type": "keydown",
+        "timestamp": "2026-05-06T15:08:28.187Z",
+        "payload": {
+          "key": "Enter"
+        }
+      },
+      {
+        "id": "step_7_1778080108339",
+        "type": "keydown",
+        "timestamp": "2026-05-06T15:08:28.339Z",
+        "payload": {
+          "key": "Enter"
+        }
+      },
+      {
+        "id": "step_1778080108339_key",
+        "type": "keydown",
+        "timestamp": "2026-05-06T15:08:28.339Z",
+        "payload": {
+          "key": "Enter"
+        }
+      },
+      {
+        "id": "step_8_1778080108522",
+        "type": "keydown",
+        "timestamp": "2026-05-06T15:08:28.522Z",
+        "payload": {
+          "key": "Enter"
+        }
+      },
+      {
+        "id": "step_1778080108521_key",
+        "type": "keydown",
+        "timestamp": "2026-05-06T15:08:28.521Z",
+        "payload": {
+          "key": "Enter"
+        }
+      },
+      {
+        "id": "step_1778080115476_key",
+        "type": "keydown",
+        "timestamp": "2026-05-06T15:08:35.476Z",
+        "payload": {
+          "key": "Backspace"
+        }
+      },
+      {
+        "id": "step_1778080115655_key",
+        "type": "keydown",
+        "timestamp": "2026-05-06T15:08:35.655Z",
+        "payload": {
+          "key": "Backspace"
+        }
+      },
+      {
+        "id": "step_1778080115835_key",
+        "type": "keydown",
+        "timestamp": "2026-05-06T15:08:35.835Z",
+        "payload": {
+          "key": "Backspace"
+        }
+      },
+      {
+        "id": "step_1778080116918_key",
+        "type": "keydown",
+        "timestamp": "2026-05-06T15:08:36.918Z",
+        "payload": {
+          "key": "Backspace"
+        }
+      },
+      {
+        "id": "step_1778080117365_key",
+        "type": "keydown",
+        "timestamp": "2026-05-06T15:08:37.365Z",
+        "payload": {
+          "key": "Backspace"
+        }
+      },
+      {
+        "id": "step_9_1778080119445",
+        "type": "keydown",
+        "timestamp": "2026-05-06T15:08:39.445Z",
+        "payload": {
+          "key": "Tab"
+        }
+      },
+      {
+        "id": "step_1778080119444_key",
+        "type": "keydown",
+        "timestamp": "2026-05-06T15:08:39.444Z",
+        "payload": {
+          "key": "Tab"
+        }
+      },
+      {
+        "id": "step_10_1778080120324",
+        "type": "keydown",
+        "timestamp": "2026-05-06T15:08:40.324Z",
+        "payload": {
+          "key": "Tab"
+        }
+      },
+      {
+        "id": "step_1778080120323_key",
+        "type": "keydown",
+        "timestamp": "2026-05-06T15:08:40.323Z",
+        "payload": {
+          "key": "Tab"
+        }
+      },
+      {
+        "id": "step_11_1778080120578",
+        "type": "keydown",
+        "timestamp": "2026-05-06T15:08:40.578Z",
+        "payload": {
+          "key": "Tab"
+        }
+      },
+      {
+        "id": "step_1778080120574_key",
+        "type": "keydown",
+        "timestamp": "2026-05-06T15:08:40.574Z",
+        "payload": {
+          "key": "Tab"
+        }
+      },
+      {
+        "id": "step_12_1778080120793",
+        "type": "keydown",
+        "timestamp": "2026-05-06T15:08:40.793Z",
+        "payload": {
+          "key": "Tab"
+        }
+      },
+      {
+        "id": "step_1778080120790_key",
+        "type": "keydown",
+        "timestamp": "2026-05-06T15:08:40.790Z",
+        "payload": {
+          "key": "Tab"
+        }
+      },
+      {
+        "id": "step_1778080123142_click",
+        "type": "click",
+        "timestamp": "2026-05-06T15:08:43.142Z",
+        "payload": {
+          "x": 451,
+          "y": 326,
+          "button": "left",
+          "selector": "screen(451,326)"
+        }
+      }
+    ],
+    "updated_at": "2026-05-06T15:08:50.358667"
   }
 }

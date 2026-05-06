@@ -15,19 +15,17 @@ export default function IndexPage() {
     submitToBackend, runExecution, exportJSON,
   } = useRecorder();
 
-  const [showExecModal, setShowExecModal]     = useState(false);
-  const [dismissedError, setDismissedError]   = useState(false);
-  const [shortcutToast, setShortcutToast]     = useState(null);
+  const [showExecModal, setShowExecModal]   = useState(false);
+  const [dismissedError, setDismissedError] = useState(false);
+  const [shortcutToast, setShortcutToast]   = useState(null);
 
   const visibleError = !dismissedError && error ? error : null;
 
   const handleExecute = async () => {
-    setShowExecModal(false);
-    await runExecution();
     setShowExecModal(true);
+    await runExecution();
   };
 
-  // Listen for shortcut-triggered task from main process
   useEffect(() => {
     window.electronAPI?.onShortcutTriggered?.((data) => {
       setShortcutToast(`▶ Running: "${data.task}" via ${data.shortcut}`);
@@ -38,7 +36,7 @@ export default function IndexPage() {
 
   return (
     <div className="min-h-screen bg-[#0a0b0d] text-[#e8edf5] font-mono" data-autorift-ui>
-      {/* Noise overlay */}
+
       <div
         className="pointer-events-none fixed inset-0 z-0 opacity-[0.025]"
         style={{
@@ -46,16 +44,15 @@ export default function IndexPage() {
         }}
       />
 
-      {/* Shortcut toast notification */}
       {shortcutToast && (
-        <div className="fixed top-4 right-4 z-50 bg-[#0d1f2d] border border-[#00e5ff] text-[#00e5ff] 
+        <div className="fixed top-4 right-4 z-50 bg-[#0d1f2d] border border-[#00e5ff] text-[#00e5ff]
           text-[11px] tracking-widest px-4 py-3 rounded-md shadow-lg fade-in">
           {shortcutToast}
         </div>
       )}
 
       <div className="relative z-10 max-w-6xl mx-auto px-6 py-8 flex flex-col gap-8">
-        {/* Top bar */}
+
         <header className="flex items-end justify-between">
           <div>
             <div className="flex items-center gap-3 mb-2">
@@ -80,10 +77,8 @@ export default function IndexPage() {
 
         <ErrorBox error={visibleError} onDismiss={() => setDismissedError(true)} />
 
-        {/* ✅ Task Panel — submit AI tasks + view saved tasks */}
         <TaskPanel />
 
-        {/* Main grid */}
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-5">
           <div className="flex flex-col gap-5">
             <RecorderPanel
@@ -120,37 +115,61 @@ export default function IndexPage() {
         </footer>
       </div>
 
-      {/* Execution modal */}
       {showExecModal && (
         <PopupModal
           title="Execution Results"
           onClose={() => setShowExecModal(false)}
-          accentColor={error ? '#ff3b5c' : '#00ff88'}
+          accentColor={error ? '#ff3b5c' : status === 'done' ? '#00ff88' : '#00e5ff'}
         >
           <div className="flex flex-col gap-3">
-            {executionLog.length > 0 ? (
-              <div className="max-h-64 overflow-y-auto flex flex-col gap-2 pr-1">
-                {executionLog.map((line, i) => (
+
+            <div className="flex items-center gap-2">
+              {status === 'executing' && (
+                <span className="w-2 h-2 rounded-full bg-[#00e5ff] animate-pulse" />
+              )}
+              {status === 'done' && (
+                <span className="w-2 h-2 rounded-full bg-[#00ff88]" />
+              )}
+              {status === 'error' && (
+                <span className="w-2 h-2 rounded-full bg-[#ff3b5c]" />
+              )}
+              <span className="text-[10px] tracking-widest uppercase text-[#7a8aa0]">
+                {status === 'executing'
+                  ? 'Running...'
+                  : status === 'done'
+                  ? 'Completed'
+                  : status === 'error'
+                  ? 'Error'
+                  : 'Starting...'}
+              </span>
+            </div>
+
+            <div className="max-h-64 overflow-y-auto flex flex-col gap-2 pr-1 min-h-[60px]">
+              {executionLog.length > 0 ? (
+                executionLog.map((line, i) => (
                   <div key={i} className="flex items-start gap-2 fade-in">
                     <span className="text-[9px] text-[#3d4d61] tabular-nums shrink-0 mt-0.5">
                       {String(i + 1).padStart(2, '0')}
                     </span>
                     <span className="text-[11px] font-mono text-[#e8edf5]">{line}</span>
                   </div>
-                ))}
-              </div>
-            ) : (
-              <p className="text-[11px] text-[#7a8aa0]">
-                {error ? error : 'No execution log returned.'}
-              </p>
-            )}
+                ))
+              ) : (
+                <p className="text-[11px] text-[#7a8aa0] italic">
+                  {error ? error : 'Connecting to backend…'}
+                </p>
+              )}
+            </div>
+
             <button
               onClick={() => setShowExecModal(false)}
-              className="mt-2 w-full py-2.5 rounded-md border border-[#252d3d] text-[11px] tracking-widest uppercase text-[#7a8aa0]
-                hover:border-[#00e5ff] hover:text-[#00e5ff] transition-all duration-200"
+              className="mt-2 w-full py-2.5 rounded-md border border-[#252d3d] text-[11px]
+                tracking-widest uppercase text-[#7a8aa0] hover:border-[#00e5ff]
+                hover:text-[#00e5ff] transition-all duration-200"
             >
               Close
             </button>
+
           </div>
         </PopupModal>
       )}

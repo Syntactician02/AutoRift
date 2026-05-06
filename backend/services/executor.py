@@ -43,8 +43,10 @@ async def execute_steps(steps: list, task_id: str):
             state.log(f"[Executor] Step {i+1} → success={result.get('success')} | {str(result.get('stdout', result.get('error', '')))[:120]}")
 
             if not result.get("success"):
+                err_msg = result.get("error") or result.get("stdout") or "Unknown error"
+                state.log(f"[Executor] Step {i+1} FAILED: {err_msg}")
                 state.log(f"[Executor] Step {i+1} FAILED — calling AI error handler")
-                fix = await handle_error(step, result.get("error", "Unknown error"))
+                fix = await handle_error(step, err_msg)
                 state.log(f"[Executor] AI: {fix.get('suggestion', '')}")
                 error_occurred = True
                 update_task_status(task_id, "error")
@@ -52,7 +54,9 @@ async def execute_steps(steps: list, task_id: str):
                 break
 
         except Exception as e:
-            state.log(f"[Executor] Exception at step {i+1}: {e}")
+            import traceback
+            state.log(f"[Executor] Exception at step {i+1}: {type(e).__name__}: {e}")
+            state.log(f"[Executor] Traceback: {traceback.format_exc().splitlines()[-1]}")
             error_occurred = True
             update_task_status(task_id, "error")
             state.is_running = False

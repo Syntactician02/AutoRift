@@ -1,51 +1,14 @@
 const { app, BrowserWindow, ipcMain, globalShortcut, screen } = require('electron');
 const { exec, spawn } = require('child_process');
 const path = require('path');
-const fs = require('fs');
-
-// uiohook is optional — don't crash if not installed
-let uIOhook = null, UiohookKey = {};
-try {
-  const lib = require('uiohook-napi');
-  uIOhook = lib.uIOhook;
-  UiohookKey = lib.UiohookKey;
-} catch (e) {
-  console.warn('[AutoRift] uiohook-napi not available — global input tracking disabled');
-}
+const { uIOhook, UiohookKey } = require('uiohook-napi');
 
 let mainWindow = null;
 let floatWindow = null;
-let backendProcess = null;
 let isRecording = false;
 
 const fetch = (...args) => import('node-fetch').then(({ default: fetch }) => fetch(...args));
 
-// ── Start Python backend automatically ────────────────────────────────────────
-function startBackend() {
-  const isDev = process.env.NODE_ENV !== 'production';
-  const backendDir = isDev
-    ? path.join(__dirname, '..', 'backend')
-    : path.join(process.resourcesPath, 'backend');
-
-  if (!fs.existsSync(backendDir)) {
-    console.error('[AutoRift] Backend dir not found:', backendDir);
-    return;
-  }
-
-  // cwd MUST be backendDir so Python relative imports and tasks_log.json resolve correctly
-  backendProcess = spawn('python', ['-m', 'uvicorn', 'app:app', '--port', '8000'], {
-    cwd: backendDir,
-    shell: process.platform === 'win32',
-    env: { ...process.env },
-  });
-
-  backendProcess.stdout.on('data', d => process.stdout.write(`[Backend] ${d}`));
-  backendProcess.stderr.on('data', d => process.stderr.write(`[Backend] ${d}`));
-  backendProcess.on('close', code => console.log(`[AutoRift] Backend exited (${code})`));
-  console.log('[AutoRift] Backend started from', backendDir);
-}
-
-// ── Window creators ───────────────────────────────────────────────────────────
 function createMainWindow() {
   mainWindow = new BrowserWindow({
     width: 1100,
@@ -71,15 +34,23 @@ function createMainWindow() {
 
   mainWindow.once('ready-to-show', () => mainWindow.show());
   mainWindow.on('closed', () => { mainWindow = null; });
+  trackWindowNavigations(mainWindow);
 }
 
 function createFloatWindow() {
   const { width, height } = screen.getPrimaryDisplay().workAreaSize;
+
   floatWindow = new BrowserWindow({
-    width: 230, height: 160,
-    x: width - 260, y: height - 190,
-    alwaysOnTop: true, frame: false, transparent: true,
-    resizable: false, skipTaskbar: true, hasShadow: true,
+    width: 230,
+    height: 160,
+    x: width - 260,
+    y: height - 190,
+    alwaysOnTop: true,
+    frame: false,
+    transparent: true,
+    resizable: false,
+    skipTaskbar: true,
+    hasShadow: true,
     webPreferences: {
       preload: path.join(__dirname, 'preload.js'),
       contextIsolation: true,
@@ -94,22 +65,30 @@ function createFloatWindow() {
       ? 'http://localhost:5173/#/float'
       : `file://${path.join(__dirname, '../autorift-app/dist/index.html')}#/float`
   );
+
   floatWindow.on('closed', () => { floatWindow = null; });
 }
 
-// ── Task shortcut loader ──────────────────────────────────────────────────────
 async function loadAndRegisterTaskShortcuts() {
   try {
     const res = await fetch('http://localhost:8000/tasks');
     const tasks = await res.json();
+
     for (const [taskId, data] of Object.entries(tasks)) {
       if (!data.shortcut_key) continue;
+
       const electronShortcut = data.shortcut_key
         .split('+')
-        .map(k => k === 'ctrl' ? 'CommandOrControl' : k.charAt(0).toUpperCase() + k.slice(1))
+        .map(k => {
+          if (k === 'ctrl') return 'CommandOrControl';
+          return k.charAt(0).toUpperCase() + k.slice(1);
+        })
         .join('+');
+
       if (globalShortcut.isRegistered(electronShortcut)) continue;
+
       globalShortcut.register(electronShortcut, async () => {
+        console.log(`[AutoRift] Shortcut fired: ${data.shortcut_key} → "${data.task}"`);
         try {
           await fetch('http://localhost:8000/run-by-shortcut', {
             method: 'POST',
@@ -124,24 +103,55 @@ async function loadAndRegisterTaskShortcuts() {
           console.error('[AutoRift] Shortcut run failed:', e.message);
         }
       });
-      console.log(`[AutoRift] Registered shortcut: ${electronShortcut}`);
+
+      console.log(`[AutoRift] Registered: ${electronShortcut} → "${data.task}"`);
     }
   } catch (e) {
-    console.warn('[AutoRift] Could not load shortcuts:', e.message);
+    console.error('[AutoRift] Could not load task shortcuts:', e.message);
   }
 }
 
-// ── Global input tracking ─────────────────────────────────────────────────────
-function startGlobalTracking() {
-  if (!uIOhook) return;
+function trackWindowNavigations(win) {
+  win.webContents.on('did-navigate', (event, url) => {
+    if (!isRecording) return;
+    if (url.includes('localhost:5173') || url.includes('autorift-app')) return;
+    const step = {
+      id: `step_${Date.now()}_navigate`,
+      type: 'navigate',
+      timestamp: new Date().toISOString(),
+      payload: { url },
+    };
+    mainWindow?.webContents.send('global:step', step);
+    floatWindow?.webContents.send('recording:steps-update', step);
+    console.log(`[AutoRift] Navigate recorded: ${url}`);
+  });
 
+  win.webContents.on('did-navigate-in-page', (event, url) => {
+    if (!isRecording) return;
+    if (url.includes('localhost:5173') || url.includes('autorift-app')) return;
+    const step = {
+      id: `step_${Date.now()}_navigate`,
+      type: 'navigate',
+      timestamp: new Date().toISOString(),
+      payload: { url },
+    };
+    mainWindow?.webContents.send('global:step', step);
+  });
+}
+
+function startGlobalTracking() {
   uIOhook.on('click', (e) => {
     if (!isRecording) return;
     const step = {
       id: `step_${Date.now()}_click`,
       type: 'click',
       timestamp: new Date().toISOString(),
-      payload: { x: e.x, y: e.y, button: e.button === 1 ? 'left' : 'right', selector: `screen(${e.x},${e.y})` },
+      payload: {
+        x: e.x,
+        y: e.y,
+        button: e.button === 1 ? 'left' : e.button === 2 ? 'right' : 'middle',
+        selector: `screen(${e.x},${e.y})`,
+      },
     };
     mainWindow?.webContents.send('global:step', step);
     floatWindow?.webContents.send('recording:steps-update', step);
@@ -154,6 +164,11 @@ function startGlobalTracking() {
       [UiohookKey.Escape]: 'Escape',
       [UiohookKey.Tab]: 'Tab',
       [UiohookKey.Backspace]: 'Backspace',
+      [UiohookKey.Delete]: 'Delete',
+      [UiohookKey.ArrowUp]: 'ArrowUp',
+      [UiohookKey.ArrowDown]: 'ArrowDown',
+      [UiohookKey.ArrowLeft]: 'ArrowLeft',
+      [UiohookKey.ArrowRight]: 'ArrowRight',
     };
     const keyName = namedKeys[e.keycode];
     if (!keyName) return;
@@ -170,12 +185,10 @@ function startGlobalTracking() {
 }
 
 function stopGlobalTracking() {
-  if (uIOhook) uIOhook.stop();
+  uIOhook.stop();
 }
 
-// ── App lifecycle ─────────────────────────────────────────────────────────────
 app.whenReady().then(() => {
-  startBackend();          // start Python backend first
   createMainWindow();
   createFloatWindow();
   startGlobalTracking();
@@ -196,17 +209,12 @@ app.whenReady().then(() => {
     floatWindow.isVisible() ? floatWindow.hide() : floatWindow.show();
   });
 
-  // Wait 3s for backend to boot, then register saved shortcuts
-  setTimeout(loadAndRegisterTaskShortcuts, 3000);
+  loadAndRegisterTaskShortcuts();
 });
 
 app.on('will-quit', () => {
   globalShortcut.unregisterAll();
   stopGlobalTracking();
-  if (backendProcess) {
-    backendProcess.kill();
-    console.log('[AutoRift] Backend killed');
-  }
 });
 
 app.on('window-all-closed', () => {
@@ -217,7 +225,6 @@ app.on('activate', () => {
   if (!mainWindow) createMainWindow();
 });
 
-// ── Recording IPC ─────────────────────────────────────────────────────────────
 ipcMain.on('recording:started', () => {
   isRecording = true;
   floatWindow?.show();
@@ -238,31 +245,42 @@ ipcMain.on('float:stop-recording', () => {
   mainWindow?.webContents.send('shortcut:toggle-recording');
 });
 
-ipcMain.on('float:hide', () => { floatWindow?.hide(); });
+ipcMain.on('float:hide', () => {
+  floatWindow?.hide();
+});
 
-// ── Window IPC ────────────────────────────────────────────────────────────────
 ipcMain.handle('window:set-always-on-top', (_, flag) => {
   mainWindow?.setAlwaysOnTop(flag);
   return flag;
 });
 
-// ── Terminal IPC ──────────────────────────────────────────────────────────────
 ipcMain.handle('terminal:run', async (_, command) => {
   return new Promise((resolve) => {
     exec(command, { timeout: 30000 }, (error, stdout, stderr) => {
-      resolve({ success: !error, stdout: stdout || '', stderr: stderr || '', error: error?.message || null, code: error?.code ?? 0 });
+      resolve({
+        success: !error,
+        stdout: stdout || '',
+        stderr: stderr || '',
+        error: error?.message || null,
+        code: error?.code ?? 0,
+      });
     });
   });
 });
 
 ipcMain.on('terminal:spawn', (event, { id, command, args = [] }) => {
   const proc = spawn(command, args, { shell: true });
-  proc.stdout.on('data', d => event.sender.send('terminal:output', { id, type: 'stdout', data: d.toString() }));
-  proc.stderr.on('data', d => event.sender.send('terminal:output', { id, type: 'stderr', data: d.toString() }));
-  proc.on('close', code => event.sender.send('terminal:output', { id, type: 'close', code }));
+  proc.stdout.on('data', (data) => {
+    event.sender.send('terminal:output', { id, type: 'stdout', data: data.toString() });
+  });
+  proc.stderr.on('data', (data) => {
+    event.sender.send('terminal:output', { id, type: 'stderr', data: data.toString() });
+  });
+  proc.on('close', (code) => {
+    event.sender.send('terminal:output', { id, type: 'close', code });
+  });
 });
 
-// ── Task IPC ──────────────────────────────────────────────────────────────────
 ipcMain.handle('task:submit', async (_, { task, shortcutKey }) => {
   try {
     const res = await fetch('http://localhost:8000/start-task', {
@@ -282,28 +300,36 @@ ipcMain.handle('task:get-all', async () => {
   try {
     const res = await fetch('http://localhost:8000/tasks');
     return await res.json();
-  } catch (e) { return {}; }
+  } catch (e) {
+    return {};
+  }
 });
 
 ipcMain.handle('task:get-status', async () => {
   try {
     const res = await fetch('http://localhost:8000/status');
     return await res.json();
-  } catch (e) { return {}; }
+  } catch (e) {
+    return {};
+  }
 });
 
 ipcMain.handle('task:pause', async () => {
   try {
     await fetch('http://localhost:8000/pause', { method: 'POST' });
     return { status: 'paused' };
-  } catch (e) { return { status: 'error', message: e.message }; }
+  } catch (e) {
+    return { status: 'error', message: e.message };
+  }
 });
 
 ipcMain.handle('task:resume', async () => {
   try {
     await fetch('http://localhost:8000/resume', { method: 'POST' });
     return { status: 'resumed' };
-  } catch (e) { return { status: 'error', message: e.message }; }
+  } catch (e) {
+    return { status: 'error', message: e.message };
+  }
 });
 
 ipcMain.handle('task:inject-input', async (_, { instruction }) => {
@@ -314,5 +340,7 @@ ipcMain.handle('task:inject-input', async (_, { instruction }) => {
       body: JSON.stringify({ instruction })
     });
     return await res.json();
-  } catch (e) { return { status: 'error', message: e.message }; }
+  } catch (e) {
+    return { status: 'error', message: e.message };
+  }
 });
