@@ -1,23 +1,74 @@
-from fastapi import APIRouter
-from models.task_model import TaskRequest
-from models.response_model import APIResponse
-from services.executor import start_task_execution
-from utils.logger import get_logger
+import uuid
+from fastapi import APIRouter, BackgroundTasks
+from models.task_model import TaskRequest, ShortcutTrigger
+from services.planner import plan_task
+from services.executor import execute_steps
+from utils.task_logger import (
+    save_task, get_all_tasks,
+    get_task_by_shortcut, update_task_steps
+)
 
 router = APIRouter()
-logger = get_logger(__name__)
 
+@router.post("/start-task")
+async def start_task(request: TaskRequest, background_tasks: BackgroundTasks):
+    task_id = request.task_id or str(uuid.uuid4())
 
-@router.post("/start-task", response_model=APIResponse)
-async def start_task(body: TaskRequest):
-    """
-    Start executing a new task described in natural language.
-    The system will plan and execute steps automatically.
-    """
-    logger.info(f"Received start-task request: {body.task}")
-    result = start_task_execution(body.task)
-    return APIResponse(
-        success=result["success"],
-        message=result["message"],
-        data={"task": body.task},
+    # ✅ Log to tasks_log.json FIRST
+    save_task(
+        task_id=task_id,
+        task=request.task,
+        shortcut_key=request.shortcut_key
     )
+
+    # Plan steps via Gemini
+    steps = await plan_task(request.task)
+    if not steps:
+        return {
+            "status": "error",
+            "message": "Planner returned no steps. Check GEMINI_API_KEY in .env"
+        }
+
+    # Save steps to log
+    update_task_steps(task_id, steps)
+
+    # Execute in background — API returns immediately
+    background_tasks.add_task(execute_steps, steps, task_id)
+
+    return {
+        "status": "started",
+        "task_id": task_id,
+        "steps_planned": len(steps),
+        "shortcut_key": request.shortcut_key,
+        "steps": steps
+    }
+
+
+@router.post("/run-by-shortcut")
+async def run_by_shortcut(payload: ShortcutTrigger, background_tasks: BackgroundTasks):
+    task_data = get_task_by_shortcut(payload.shortcut_key)
+    if not task_data:
+        return {
+            "status": "error",
+            "message": f"No task saved for shortcut: {payload.shortcut_key}"
+        }
+
+    steps = await plan_task(task_data["task"])
+    if not steps:
+        return {"status": "error", "message": "Failed to re-plan task"}
+
+    update_task_steps(task_data["task_id"], steps)
+    background_tasks.add_task(execute_steps, steps, task_data["task_id"])
+
+    return {
+        "status": "started",
+        "task_id": task_data["task_id"],
+        "task": task_data["task"],
+        "shortcut_key": payload.shortcut_key,
+        "steps_planned": len(steps)
+    }
+
+
+@router.get("/tasks")
+async def list_tasks():
+    return get_all_tasks()

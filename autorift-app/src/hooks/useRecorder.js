@@ -1,5 +1,4 @@
 import { useState, useCallback, useRef, useEffect } from 'react';
-import { submitSteps, executeSteps } from '../services/api';
 
 const ACTION_TYPES = {
   CLICK: 'click',
@@ -22,12 +21,14 @@ function buildStep(type, payload) {
 }
 
 export function useRecorder() {
-  const [isRecording, setIsRecording] = useState(false);
-  const [steps, setSteps] = useState([]);
-  const [status, setStatus] = useState('idle');
-  const [error, setError] = useState(null);
-  const [executionLog, setExecutionLog] = useState([]);
-  const listenersRef = useRef([]);
+  const [isRecording, setIsRecording]     = useState(false);
+  const [steps, setSteps]                 = useState([]);
+  const [status, setStatus]               = useState('idle');
+  const [error, setError]                 = useState(null);
+  const [executionLog, setExecutionLog]   = useState([]);
+  const [taskId, setTaskId]               = useState(null);
+  const listenersRef                      = useRef([]);
+  const pollRef                           = useRef(null);
 
   // ── Global steps from Electron (cross-app recording) ──────────────────────
   useEffect(() => {
@@ -38,23 +39,26 @@ export function useRecorder() {
     return () => window.electronAPI.removeAllListeners('global:step');
   }, []);
 
-  // ── DOM listener helpers (in-app recording) ────────────────────────────────
+  // ── DOM listener helpers ───────────────────────────────────────────────────
   const addStep = useCallback((step) => {
     setSteps((prev) => [...prev, step]);
   }, []);
 
+  // ── Start Recording ────────────────────────────────────────────────────────
   const startRecording = useCallback(() => {
     setError(null);
     setExecutionLog([]);
     setStatus('recording');
     setIsRecording(true);
+    setSteps([]);
+    stepCounter = 0;
 
-    // Notify Electron main process
     window.electronAPI?.recordingStarted();
 
-    // Click listener
     const onClick = (e) => {
       const el = e.target;
+      // ignore clicks inside the AutoRift UI itself
+      if (el.closest('[data-autorift-ui]')) return;
       const selector = buildSelector(el);
       addStep(buildStep(ACTION_TYPES.CLICK, {
         selector,
@@ -65,7 +69,6 @@ export function useRecorder() {
       }));
     };
 
-    // Input listener (debounced per element)
     const inputTimers = new WeakMap();
     const onInput = (e) => {
       const el = e.target;
@@ -80,7 +83,6 @@ export function useRecorder() {
       }, 600));
     };
 
-    // Keydown (capture Enter, Escape, Tab)
     const onKeydown = (e) => {
       if (['Enter', 'Escape', 'Tab'].includes(e.key)) {
         addStep(buildStep(ACTION_TYPES.KEYDOWN, { key: e.key }));
@@ -98,54 +100,151 @@ export function useRecorder() {
     ];
   }, [addStep]);
 
+  // ── Stop Recording ─────────────────────────────────────────────────────────
   const stopRecording = useCallback(() => {
     listenersRef.current.forEach((remove) => remove());
     listenersRef.current = [];
     setIsRecording(false);
     setStatus('idle');
-
-    // Notify Electron main process
     window.electronAPI?.recordingStopped();
   }, []);
 
+  // ── Clear ──────────────────────────────────────────────────────────────────
   const clearSteps = useCallback(() => {
     setSteps([]);
     setError(null);
     setExecutionLog([]);
     setStatus('idle');
+    setTaskId(null);
     stepCounter = 0;
+    clearInterval(pollRef.current);
   }, []);
 
   const removeStep = useCallback((id) => {
     setSteps((prev) => prev.filter((s) => s.id !== id));
   }, []);
 
-  const submitToBackend = useCallback(async () => {
-    if (!steps.length) return;
+  // ── Export JSON ────────────────────────────────────────────────────────────
+  const exportJSON = useCallback(() => {
+    const blob = new Blob([JSON.stringify(steps, null, 2)], { type: 'application/json' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = `autorift-steps-${Date.now()}.json`;
+    a.click();
+    URL.revokeObjectURL(url);
+  }, [steps]);
+
+  // ── Poll backend logs ──────────────────────────────────────────────────────
+  function startPolling(id) {
+    clearInterval(pollRef.current);
+    pollRef.current = setInterval(async () => {
+      try {
+        const res = await fetch('http://localhost:8000/status');
+        const data = await res.json();
+        if (data.logs?.length) {
+          setExecutionLog(data.logs.slice(-50));
+        }
+        if (!data.is_running) {
+          clearInterval(pollRef.current);
+          setStatus('done');
+        }
+      } catch (e) {
+        clearInterval(pollRef.current);
+      }
+    }, 2000);
+  }
+
+  // ── Submit to Backend — stores steps + task in tasks_log.json ─────────────
+  const submitToBackend = useCallback(async (shortcutKey = null) => {
+    if (!steps.length) {
+      setError('No steps recorded. Record something first.');
+      return;
+    }
     setStatus('submitting');
     setError(null);
+
+    // Convert recorded steps into a task description
+    const taskDescription = steps
+      .map((s, i) => {
+        if (s.type === 'click')    return `Click on ${s.payload.text || s.payload.selector}`;
+        if (s.type === 'input')    return `Type "${s.payload.value}" into ${s.payload.selector}`;
+        if (s.type === 'keydown')  return `Press ${s.payload.key}`;
+        if (s.type === 'navigate') return `Navigate to ${s.payload.url}`;
+        return `Step ${i + 1}: ${s.type}`;
+      })
+      .join(', then ');
+
     try {
-      const res = await submitSteps(steps);
-      setExecutionLog((prev) => [...prev, `✓ Submitted ${steps.length} steps. Session: ${res.session_id || 'N/A'}`]);
-      setStatus('done');
+      const res = await fetch('http://localhost:8000/start-task', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          task: taskDescription,
+          shortcut_key: shortcutKey || null,
+          recorded_steps: steps,
+        }),
+      });
+
+      const data = await res.json();
+
+      if (data.status === 'started') {
+        setTaskId(data.task_id);
+        setExecutionLog([`✅ Task stored with ID: ${data.task_id}`, `📋 ${data.steps_planned} steps planned`]);
+        setStatus('submitted');
+      } else {
+        setError(data.message || 'Submission failed');
+        setStatus('error');
+      }
     } catch (err) {
-      setError(err.message || 'Submission failed');
+      setError('Backend unreachable. Is it running on port 8000?');
       setStatus('error');
     }
   }, [steps]);
 
-  const runExecution = useCallback(async () => {
-    if (!steps.length) return;
+  // ── Run Execution — executes stored task via backend ──────────────────────
+  const runExecution = useCallback(async (shortcutKey = null) => {
+    if (!steps.length) {
+      setError('No steps to execute.');
+      return;
+    }
     setStatus('executing');
     setError(null);
     setExecutionLog([]);
+
+    const taskDescription = steps
+      .map((s, i) => {
+        if (s.type === 'click')    return `Click on ${s.payload.text || s.payload.selector}`;
+        if (s.type === 'input')    return `Type "${s.payload.value}" into ${s.payload.selector}`;
+        if (s.type === 'keydown')  return `Press ${s.payload.key}`;
+        if (s.type === 'navigate') return `Navigate to ${s.payload.url}`;
+        return `Step ${i + 1}: ${s.type}`;
+      })
+      .join(', then ');
+
     try {
-      const res = await executeSteps(steps);
-      const logs = res.results || [];
-      setExecutionLog(logs.map((r) => `[${r.step}] ${r.status} — ${r.message || ''}`));
-      setStatus('done');
+      const res = await fetch('http://localhost:8000/start-task', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          task: taskDescription,
+          shortcut_key: shortcutKey || null,
+          recorded_steps: steps,
+        }),
+      });
+
+      const data = await res.json();
+
+      if (data.status === 'started') {
+        setTaskId(data.task_id);
+        setExecutionLog([`▶ Executing task: ${data.task_id}`, `📋 ${data.steps_planned} steps`]);
+        startPolling(data.task_id);
+      } else {
+        setError(data.message || 'Execution failed');
+        setStatus('error');
+      }
     } catch (err) {
-      setError(err.message || 'Execution failed');
+      setError('Backend unreachable. Is it running on port 8000?');
       setStatus('error');
     }
   }, [steps]);
@@ -156,12 +255,14 @@ export function useRecorder() {
     status,
     error,
     executionLog,
+    taskId,
     startRecording,
     stopRecording,
     clearSteps,
     removeStep,
     submitToBackend,
     runExecution,
+    exportJSON,
   };
 }
 

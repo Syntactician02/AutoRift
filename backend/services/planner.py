@@ -1,23 +1,35 @@
-from services.ai_engine import plan_task
-from utils.logger import get_logger
+import json
+from services.ai_engine import ask_gemini
 
-logger = get_logger(__name__)
+PLANNER_PROMPT = """
+You are a task planner for an automation system called AutoRift.
+Break this task into sequential executable steps.
 
+Each step must be a JSON object with:
+- "type": "terminal" or "browser"
+- "command": shell command (for terminal steps)
+- "action": one of open_url, click, type, navigate (for browser steps)
+- "params": dict of params for browser action e.g. {{"url": "..."}}, {{"selector": "..."}}, {{"text": "..."}}
+- "description": human readable explanation of this step
 
-def generate_plan(task_description: str) -> list[dict]:
-    """
-    Use AI to convert a natural language task into a structured list of steps.
-    Each step has: type, action/command, description, and optionally url/app_name.
-    """
-    logger.info(f"Generating plan for task: {task_description}")
-    steps = plan_task(task_description)
+Return ONLY a valid JSON array. No markdown, no explanation, just the array.
 
-    if not steps:
-        logger.warning("AI returned no steps. Falling back to empty plan.")
+Task: {task}
+"""
+
+async def plan_task(task: str) -> list:
+    prompt = PLANNER_PROMPT.format(task=task)
+    response = await ask_gemini(prompt)
+    try:
+        cleaned = response.strip()
+        if cleaned.startswith("```"):
+            cleaned = cleaned.split("```")[1]
+            if cleaned.startswith("json"):
+                cleaned = cleaned[4:]
+        cleaned = cleaned.strip()
+        steps = json.loads(cleaned)
+        print(f"[Planner] {len(steps)} steps planned")
+        return steps
+    except Exception as e:
+        print(f"[Planner Error] {e} | Raw: {response}")
         return []
-
-    logger.info(f"Plan generated with {len(steps)} steps.")
-    for i, step in enumerate(steps):
-        logger.debug(f"  Step {i}: {step}")
-
-    return steps

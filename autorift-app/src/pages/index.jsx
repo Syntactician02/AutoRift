@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { useRecorder } from '../hooks/useRecorder';
 import RecorderPanel from '../components/RecorderPanel';
 import ControlPanel from '../components/ControlPanel';
@@ -6,6 +6,7 @@ import StepViewer from '../components/StepViewer';
 import PopupModal from '../components/PopupModal';
 import ErrorBox from '../components/ErrorBox';
 import FloatOverlay from '../components/FloatOverlay';
+import TaskPanel from '../components/TaskPanel';
 
 export default function IndexPage() {
   const {
@@ -14,8 +15,11 @@ export default function IndexPage() {
     submitToBackend, runExecution, exportJSON,
   } = useRecorder();
 
-  const [showExecModal, setShowExecModal] = useState(false);
-  const [dismissedError, setDismissedError] = useState(false);
+  const [showExecModal, setShowExecModal]     = useState(false);
+  const [dismissedError, setDismissedError]   = useState(false);
+  const [shortcutToast, setShortcutToast]     = useState(null);
+
+  const visibleError = !dismissedError && error ? error : null;
 
   const handleExecute = async () => {
     setShowExecModal(false);
@@ -23,10 +27,16 @@ export default function IndexPage() {
     setShowExecModal(true);
   };
 
-  const visibleError = !dismissedError && error ? error : null;
+  // Listen for shortcut-triggered task from main process
+  useEffect(() => {
+    window.electronAPI?.onShortcutTriggered?.((data) => {
+      setShortcutToast(`▶ Running: "${data.task}" via ${data.shortcut}`);
+      setTimeout(() => setShortcutToast(null), 4000);
+    });
+    return () => window.electronAPI?.removeAllListeners?.('task:shortcut-triggered');
+  }, []);
 
   return (
-    // data-autorift-ui tells the recorder listeners to ignore this whole tree
     <div className="min-h-screen bg-[#0a0b0d] text-[#e8edf5] font-mono" data-autorift-ui>
       {/* Noise overlay */}
       <div
@@ -35,6 +45,14 @@ export default function IndexPage() {
           backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E")`,
         }}
       />
+
+      {/* Shortcut toast notification */}
+      {shortcutToast && (
+        <div className="fixed top-4 right-4 z-50 bg-[#0d1f2d] border border-[#00e5ff] text-[#00e5ff] 
+          text-[11px] tracking-widest px-4 py-3 rounded-md shadow-lg fade-in">
+          {shortcutToast}
+        </div>
+      )}
 
       <div className="relative z-10 max-w-6xl mx-auto px-6 py-8 flex flex-col gap-8">
         {/* Top bar */}
@@ -61,6 +79,9 @@ export default function IndexPage() {
         </header>
 
         <ErrorBox error={visibleError} onDismiss={() => setDismissedError(true)} />
+
+        {/* ✅ Task Panel — submit AI tasks + view saved tasks */}
+        <TaskPanel />
 
         {/* Main grid */}
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-5">
@@ -134,7 +155,6 @@ export default function IndexPage() {
         </PopupModal>
       )}
 
-      {/* Floating overlay — renders outside main layout, on top of everything */}
       <FloatOverlay
         isRecording={isRecording}
         steps={steps}

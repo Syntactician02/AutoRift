@@ -7,6 +7,10 @@ let mainWindow = null;
 let floatWindow = null;
 let isRecording = false;
 
+// ── Fetch (for backend calls) ──────────────────────────────────────────────────
+const fetch = (...args) => import('node-fetch').then(({ default: fetch }) => fetch(...args));
+
+// ── Window creators ────────────────────────────────────────────────────────────
 function createMainWindow() {
   mainWindow = new BrowserWindow({
     width: 1100,
@@ -66,6 +70,50 @@ function createFloatWindow() {
   floatWindow.on('closed', () => { floatWindow = null; });
 }
 
+// ── Task shortcut loader ───────────────────────────────────────────────────────
+async function loadAndRegisterTaskShortcuts() {
+  try {
+    const res = await fetch('http://localhost:8000/tasks');
+    const tasks = await res.json();
+
+    for (const [taskId, data] of Object.entries(tasks)) {
+      if (!data.shortcut_key) continue;
+
+      const electronShortcut = data.shortcut_key
+        .split('+')
+        .map(k => {
+          if (k === 'ctrl') return 'CommandOrControl';
+          return k.charAt(0).toUpperCase() + k.slice(1);
+        })
+        .join('+');
+
+      // Skip already registered shortcuts
+      if (globalShortcut.isRegistered(electronShortcut)) continue;
+
+      globalShortcut.register(electronShortcut, async () => {
+        console.log(`[AutoRift] Shortcut fired: ${data.shortcut_key} → "${data.task}"`);
+        try {
+          await fetch('http://localhost:8000/run-by-shortcut', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ shortcut_key: data.shortcut_key })
+          });
+          mainWindow?.webContents.send('task:shortcut-triggered', {
+            shortcut: data.shortcut_key,
+            task: data.task
+          });
+        } catch (e) {
+          console.error('[AutoRift] Shortcut run failed:', e.message);
+        }
+      });
+
+      console.log(`[AutoRift] Registered: ${electronShortcut} → "${data.task}"`);
+    }
+  } catch (e) {
+    console.error('[AutoRift] Could not load task shortcuts (is backend running?):', e.message);
+  }
+}
+
 // ── Global input tracking ──────────────────────────────────────────────────────
 function startGlobalTracking() {
   uIOhook.on('click', (e) => {
@@ -87,7 +135,6 @@ function startGlobalTracking() {
 
   uIOhook.on('keydown', (e) => {
     if (!isRecording) return;
-    // Only capture named/useful keys, not every character
     const namedKeys = {
       [UiohookKey.Enter]: 'Enter',
       [UiohookKey.Escape]: 'Escape',
@@ -110,7 +157,6 @@ function startGlobalTracking() {
     mainWindow?.webContents.send('global:step', step);
   });
 
-
   uIOhook.on('mousedown', (e) => console.log('GLOBAL CLICK DETECTED:', e.x, e.y));
   uIOhook.on('keydown', (e) => console.log('GLOBAL KEY DETECTED:', e.keycode));
   uIOhook.start();
@@ -126,7 +172,7 @@ app.whenReady().then(() => {
   createFloatWindow();
   startGlobalTracking();
 
-  // Ctrl+Shift+R — toggle recording globally
+  // Ctrl+Shift+R — toggle recording
   globalShortcut.register('CommandOrControl+Shift+R', () => {
     isRecording = !isRecording;
     mainWindow?.webContents.send('shortcut:toggle-recording');
@@ -143,6 +189,9 @@ app.whenReady().then(() => {
     if (!floatWindow) return;
     floatWindow.isVisible() ? floatWindow.hide() : floatWindow.show();
   });
+
+  // ✅ Load saved task shortcuts from backend on startup
+  loadAndRegisterTaskShortcuts();
 });
 
 app.on('will-quit', () => {
@@ -215,4 +264,70 @@ ipcMain.on('terminal:spawn', (event, { id, command, args = [] }) => {
   proc.on('close', (code) => {
     event.sender.send('terminal:output', { id, type: 'close', code });
   });
+});
+
+// ── Task IPC ───────────────────────────────────────────────────────────────────
+ipcMain.handle('task:submit', async (_, { task, shortcutKey }) => {
+  try {
+    const res = await fetch('http://localhost:8000/start-task', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ task, shortcut_key: shortcutKey || null })
+    });
+    const data = await res.json();
+    // Re-register shortcuts so new shortcut works immediately
+    await loadAndRegisterTaskShortcuts();
+    return data;
+  } catch (e) {
+    return { status: 'error', message: e.message };
+  }
+});
+
+ipcMain.handle('task:get-all', async () => {
+  try {
+    const res = await fetch('http://localhost:8000/tasks');
+    return await res.json();
+  } catch (e) {
+    return {};
+  }
+});
+
+ipcMain.handle('task:get-status', async () => {
+  try {
+    const res = await fetch('http://localhost:8000/status');
+    return await res.json();
+  } catch (e) {
+    return {};
+  }
+});
+
+ipcMain.handle('task:pause', async () => {
+  try {
+    await fetch('http://localhost:8000/pause', { method: 'POST' });
+    return { status: 'paused' };
+  } catch (e) {
+    return { status: 'error', message: e.message };
+  }
+});
+
+ipcMain.handle('task:resume', async () => {
+  try {
+    await fetch('http://localhost:8000/resume', { method: 'POST' });
+    return { status: 'resumed' };
+  } catch (e) {
+    return { status: 'error', message: e.message };
+  }
+});
+
+ipcMain.handle('task:inject-input', async (_, { instruction }) => {
+  try {
+    const res = await fetch('http://localhost:8000/input', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ instruction })
+    });
+    return await res.json();
+  } catch (e) {
+    return { status: 'error', message: e.message };
+  }
 });

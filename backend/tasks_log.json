@@ -1,0 +1,86 @@
+{
+  "7ab144e3-2279-4406-9b5a-ef2d9d3fd166": {
+    "task": "Click on screen(1093,562), then Click on screen(1093,562), then Click on screen(1850,250), then Click on screen(1850,250), then Click on screen(1229,410), then Click on screen(1229,410), then Click on screen(1240,1065), then Click on screen(1445,876), then Press Enter, then Click on screen(1368,1045), then Click on screen(1129,802), then Click on screen(1871,449), then Click on screen(1288,113), then Press Enter, then Press Tab",
+    "shortcut_key": null,
+    "status": "running",
+    "created_at": "2026-05-06T00:29:43.838389",
+    "steps": {
+      "explanation": "AI unavailable",
+      "suggestion": "retry",
+      "fix_command": ""
+    },
+    "updated_at": "2026-05-06T00:29:44.759458"
+  },
+  "015c4ebe-c847-4bef-840b-d3ef12e46898": {
+    "task": "Click on screen(1093,562), then Click on screen(1093,562), then Click on screen(1850,250), then Click on screen(1850,250), then Click on screen(1229,410), then Click on screen(1229,410), then Click on screen(1240,1065), then Click on screen(1445,876), then Press Enter, then Click on screen(1368,1045), then Click on screen(1129,802), then Click on screen(1871,449), then Click on screen(1288,113), then Press Enter, then Press Tab",
+    "shortcut_key": null,
+    "status": "running",
+    "created_at": "2026-05-06T00:29:48.734033",
+    "steps": {
+      "explanation": "AI unavailable",
+      "suggestion": "retry",
+      "fix_command": ""
+    },
+    "updated_at": "2026-05-06T00:29:48.927924"
+  },
+  "23c0037b-8a9e-46e0-9dff-40f3d293dfcb": {
+    "task": "Click on screen(1470,1031), then Click on screen(1207,1053), then Click on screen(1207,1053), then Click on screen(1207,1053), then Click on screen(1231,1051), then Click on screen(1156,884), then Press Enter, then Press Tab, then Click on screen(436,350)",
+    "shortcut_key": null,
+    "status": "running",
+    "created_at": "2026-05-06T00:31:53.903644",
+    "steps": {
+      "explanation": "AI unavailable",
+      "suggestion": "retry",
+      "fix_command": ""
+    },
+    "updated_at": "2026-05-06T00:31:54.065089"
+  },
+  "59dc22bf-850c-4331-b805-365cff2302dd": {
+    "task": "Click on screen(1470,1031), then Click on screen(1207,1053), then Click on screen(1207,1053), then Click on screen(1207,1053), then Click on screen(1231,1051), then Click on screen(1156,884), then Press Enter, then Press Tab, then Click on screen(436,350)",
+    "shortcut_key": null,
+    "status": "running",
+    "created_at": "2026-05-06T00:31:57.300977",
+    "steps": {
+      "explanation": "AI unavailable",
+      "suggestion": "retry",
+      "fix_command": ""
+    },
+    "updated_at": "2026-05-06T00:31:57.479158"
+  },
+  "362cde24-ab8b-40cc-ad8a-ca33387d13c4": {
+    "task": "Click on screen(1470,1031), then Click on screen(1207,1053), then Click on screen(1207,1053), then Click on screen(1207,1053), then Click on screen(1231,1051), then Click on screen(1156,884), then Press Enter, then Press Tab, then Click on screen(436,350)",
+    "shortcut_key": null,
+    "status": "running",
+    "created_at": "2026-05-06T00:31:59.184024",
+    "steps": {
+      "explanation": "AI unavailable",
+      "suggestion": "retry",
+      "fix_command": ""
+    },
+    "updated_at": "2026-05-06T00:31:59.405782"
+  },
+  "ec9caeaa-a831-4ec1-8f80-cd15ec3bd27a": {
+    "task": "Click on screen(1693,354), then Click on screen(1693,354), then Click on screen(1693,354), then Click on screen(1693,354), then Click on screen(1693,354), then Click on screen(1693,354), then Click on screen(1489,1040), then Click on screen(1241,1047), then Click on screen(1333,898), then Click on screen(1273,89), then Press Enter, then Press Tab, then Click on screen(628,347)",
+    "shortcut_key": null,
+    "status": "running",
+    "created_at": "2026-05-06T00:40:50.989870",
+    "steps": {
+      "explanation": "AI unavailable",
+      "suggestion": "retry",
+      "fix_command": ""
+    },
+    "updated_at": "2026-05-06T00:40:51.500892"
+  },
+  "1250faf0-854c-4740-a8eb-510dbc74eeae": {
+    "task": "Click on screen(1693,354), then Click on screen(1693,354), then Click on screen(1693,354), then Click on screen(1693,354), then Click on screen(1693,354), then Click on screen(1693,354), then Click on screen(1489,1040), then Click on screen(1241,1047), then Click on screen(1333,898), then Click on screen(1273,89), then Press Enter, then Press Tab, then Click on screen(628,347)",
+    "shortcut_key": null,
+    "status": "running",
+    "created_at": "2026-05-06T00:40:52.794055",
+    "steps": {
+      "explanation": "AI unavailable",
+      "suggestion": "retry",
+      "fix_command": ""
+    },
+    "updated_at": "2026-05-06T00:40:52.957817"
+  }
+}

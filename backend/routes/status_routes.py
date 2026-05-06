@@ -1,26 +1,19 @@
 from fastapi import APIRouter
-from models.response_model import APIResponse
 from services.state_manager import state
-from services.executor import get_last_result
-from utils.logger import get_logger
+from utils.task_logger import get_all_tasks
 
 router = APIRouter()
-logger = get_logger(__name__)
 
-
-@router.get("/status", response_model=APIResponse)
+@router.get("/status")
 async def get_status():
-    """
-    Returns the current execution state:
-    running/paused, step progress, task name, and last result if finished.
-    """
-    status = state.get_status()
-    if not status["is_running"]:
-        last = get_last_result()
-        status["last_result"] = last
+    return {
+        "is_running": state.is_running,
+        "is_paused": state.is_paused,
+        "current_step": state.current_step,
+        "current_task_id": state.current_task_id,
+        "logs": state.logs[-50:]  # last 50 log lines
+    }
 
-    return APIResponse(
-        success=True,
-        message="Status fetched.",
-        data=status,
-    )
+@router.get("/logs")
+async def get_logs():
+    return {"logs": state.logs}

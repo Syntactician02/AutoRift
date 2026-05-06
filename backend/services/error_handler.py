@@ -1,25 +1,29 @@
-from services.ai_engine import analyze_error
-from utils.logger import get_logger
+import json
+from services.ai_engine import ask_gemini
 
-logger = get_logger(__name__)
+ERROR_PROMPT = """
+A task automation step failed in AutoRift.
 
+Step details: {step}
+Error message: {error}
 
-def handle_error(command: str, error_output: str) -> dict:
-    """
-    Handle a step failure:
-    1. Call AI to analyze the error.
-    2. Return structured error info for the caller to act on.
-    """
-    logger.warning(f"Handling error for command: {command}")
-    logger.debug(f"Error output: {error_output}")
+Return a JSON object ONLY:
+{{
+  "explanation": "what went wrong in simple terms",
+  "suggestion": "how the user can fix it manually",
+  "fix_command": "shell command to auto-fix this, or empty string if not applicable"
+}}
+"""
 
-    ai_result = analyze_error(command, error_output)
-
-    return {
-        "success": False,
-        "failed_command": command,
-        "error_output": error_output,
-        "explanation": ai_result.get("explanation", "Unknown error."),
-        "suggestion": ai_result.get("suggestion", ""),
-        "fix_command": ai_result.get("fix_command", ""),
-    }
+async def handle_error(step: dict, error: str) -> dict:
+    prompt = ERROR_PROMPT.format(step=json.dumps(step), error=error)
+    response = await ask_gemini(prompt)
+    try:
+        cleaned = response.strip().strip("```json").strip("```").strip()
+        return json.loads(cleaned)
+    except Exception:
+        return {
+            "explanation": "Unknown error occurred",
+            "suggestion": "Check the logs manually",
+            "fix_command": ""
+        }

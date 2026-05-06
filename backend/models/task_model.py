@@ -1,18 +1,13 @@
 from pydantic import BaseModel
 from typing import Optional
 
-
 class TaskRequest(BaseModel):
     task: str
+    task_id: Optional[str] = None
+    shortcut_key: Optional[str] = None
 
-
-class InputRequest(BaseModel):
+class InjectedInput(BaseModel):
     instruction: str
 
-
-class StepResult(BaseModel):
-    step_index: int
-    step: dict
-    success: bool
-    output: Optional[str] = None
-    error: Optional[str] = None
+class ShortcutTrigger(BaseModel):
+    shortcut_key: str
